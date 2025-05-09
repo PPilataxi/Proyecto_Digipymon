@@ -1,13 +1,14 @@
+from digipymon import Digipymon;
 class Jugador():
     def __init__( self , nombre ,lista_digipymon , cantidad_digipymon , digicoins):
-    self.nombre = nombre
-    self.lista_digipymon = lista[]
-    self.cantidad_digipymon = 0
-    self.digicoins = 10
+        self.nombre = nombre
+        self.lista_digipymon = []
+        self.cantidad_digipymon = 0
+        self.digicoins = 10
 
 
 def mostrar_informacion(self):
-    print("Nombre: {self.nombre}, Lista_digipymon: {self.lista_digipymon} . );
+    print("Nombre: {self.nombre}, Lista_digipymon: {self.lista_digipymon} " )
 
 
 
@@ -18,18 +19,18 @@ def mostrar_informacion(self):
 
 
 
-def añadir_digipymon():
+def añadir_digipymon(self):
 
-digipymon pilamon = new digipymon ;
+    pilamon = Digipymon() 
 
-lista_digipymon[pilamon] 
-cantidad_digipymon + 1  
+    self.lista_digipymon[pilamon] 
+    self.cantidad_digipymon + 1  
 
-def consultar_digipymon(pilamon):
+def consultar_digipymon(self):
 
-print(lista_digipymon)
+    print(self.lista_digipymon)
 
 
-def consultar_digicoins():
+def consultar_digicoins(self):
 
-print(digicoins);
+    print(self.digicoins)

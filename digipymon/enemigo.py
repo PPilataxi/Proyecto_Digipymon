@@ -1,4 +1,5 @@
 from digipymon import  Digipymon;
+
 class Enemigo():
     def __init__( self,nombre):
         self.nombre = nombre
@@ -7,9 +8,9 @@ class Enemigo():
 
     def añadir_digipymon(self):
 
-        poyomon =  Digipymon()  
+        poyomon =  Digipymon("pollo",12,13,"fuego",2)  
         self.lista_digipymon[poyomon] 
         self.cantidad_digipymon + 1 
         print(self.lista_digipymon)
 
-
+        print(poyomon.ataque)
