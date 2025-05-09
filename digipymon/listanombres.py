@@ -5,9 +5,6 @@ class ListaNombres():
        self.lista_nombres_digipymons = [poyomon,pilamon,eliomon,poliomon,jijomon,dodomon,cinomon,sakomon,suliamon,kikamon,poyimon,polomon,eluomon,piliomon,jojomon,dadomon,cunomon,sekomon,saliamon,kakumon]
        self.lista_nombres_entrenadores = [carlos,pepe,loli,naruto,sasuke,jack,elias,hector,daniel,nerea,claudia,pablo,raul,kiko,raquel,susana,jose,sakura,nosferatu,juan]
 
-def mostrar_informacion(self):
-    print("Nombre: {self.nombre}, Lista_digipymon: {self.lista_digipymon} " )
-
 
 
 
