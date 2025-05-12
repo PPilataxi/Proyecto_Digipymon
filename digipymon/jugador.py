@@ -1,9 +1,10 @@
 class Jugador:
 #Creación de métodos por parámetros
     def __init__(self, nombre):
+
         self.nombre = nombre
         self.lista_digipymon = []
-        self.cantidad_digypymon = 0
+        self.cantidad_digipymon = 0
         self.digicoins = 10
 
 #Creación método para añadir digipymons
@@ -16,4 +17,3 @@ class Jugador:
     def consultar_digipymon(self):
             for digypymon in self.lista_digipymon:
                  print("Estos son tus digipymon: " + digypymon)
-
