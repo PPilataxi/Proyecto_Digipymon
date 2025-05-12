@@ -7,8 +7,8 @@ class Jugador():
         self.digicoins = 10
 
 
-def mostrar_informacion(self):
-    print("Nombre: {self.nombre}, Lista_digipymon: {self.lista_digipymon} " )
+        def mostrar_informacion(self):
+            print("Nombre: {self.nombre}, Lista_digipymon: {self.lista_digipymon} " )
 
 
 
@@ -19,18 +19,18 @@ def mostrar_informacion(self):
 
 
 
-def añadir_digipymon(self):
+        def añadir_digipymon(self):
 
-    pilamon = Digipymon() 
+            pilamon = Digipymon() 
 
-    self.lista_digipymon[pilamon] 
-    self.cantidad_digipymon + 1  
+            self.lista_digipymon[pilamon] 
+            self.cantidad_digipymon + 1  
 
-def consultar_digipymon(self):
+        def consultar_digipymon(self):
 
-    print(self.lista_digipymon)
+            print(self.lista_digipymon)
 
 
-def consultar_digicoins(self):
+        def consultar_digicoins(self):
 
-    print(self.digicoins)
+            print(self.digicoins)
