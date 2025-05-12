@@ -14,11 +14,6 @@ class Jugador:
 
 #Creación método para consultar los digipymons que tenemos en nuestra posesión
     def consultar_digipymon(self):
-        if self.lista_digipymon:
-            print(f"\n{self.nombre} tiene en su posesión los siguientes digipymons: ")
             for digypymon in self.lista_digipymon:
-                print(f" {digypymon}")
-        else:
-            print(self.nombre + "no dispone de digipymons todavia")
-
+                 print("Estos son tus digipymon: " + digypymon)
 
