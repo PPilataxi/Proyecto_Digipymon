@@ -12,4 +12,4 @@ class Digipymon():
 
         def _str_():
            
-            print(f"Nombre:"   , "Vida: vida" , "Ataque: ataque" , "Tipo : tipo " , "Nivel: nivel" )
+            print(f"Nombre: {self.nombre}   , Vida: {self.vida} , Ataque: {self.ataque} , Tipo :{self.tipo}  , Nivel: {self.nivel}" )

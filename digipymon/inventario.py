@@ -1,23 +1,26 @@
 class Inventario():
     
-    def __init__(objetos):
-       objetos =  {}
+    def __init__(self,objetos):
+       self.objetos =  {}
    
     def añadir_objeto(self,nombre , cantidad ):
         nombre = "patata"
         cantidad = 1
         if nombre in self.objetos:
-            print(f'Clave {nombre} esta y el valor asociado es {self.objetos[cantidad]} ')
+            print(f'El nombre {nombre} esta y el valor asociado es {self.objetos[cantidad]} ')
+            cantidad += 1 
+            self.objetos.update({cantidad})
+
         else:
             print(f'{nombre} no esta en la objetos')
-            self.objetos.update(nombre,cantidad)
+            self.objetos.update({nombre:cantidad})
 
 
     def usar_objeto(self):
-        self.objetos = {"patata" : 1,"naranja": 2}
+        cantidad = 1
+        self.objetos = {"patata" : 1,"naranja": 2,"manzana": 3}
+        if cantidad < 0:
+           cantidad - 1
+        else: cantidad = 0
         del(self.objetos["naranja"])
-        self.objetos
-
-bolsa = Inventario(objetos = {})
-bolsa.añadir_objeto("patata" , 1)
-print(bolsa)
+        return print(self.objetos)
