@@ -1,6 +1,6 @@
 class Inventario():
     
-    def __init__(self,objetos):
+    def __init__(self):
        self.objetos =  {}
    
     def añadir_objeto(self,nombre , cantidad ):
@@ -17,8 +17,8 @@ class Inventario():
 
 
     def usar_objeto(self):
-        cantidad = 1
-        self.objetos = {"patata" : 1,"naranja": 2,"manzana": 3}
+        cantidad = cantidad
+        self.objetos = self.objetos
         if cantidad < 0:
            cantidad - 1
         else: cantidad = 0

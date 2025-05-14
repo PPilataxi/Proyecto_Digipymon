@@ -26,6 +26,6 @@ class Jugador():
 
 #Consultar digicoins
   def consultar_digicoins(self):
-         print(f"{self.nombre} tiene en su posesión {self.digicoins}")
+         print(f"{self.nombre} tiene en su posesión {self.digicoins} digicoins")
 
 
