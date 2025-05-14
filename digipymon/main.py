@@ -78,7 +78,7 @@ def usar_item(yuyu):
 
 def main():
        yuyu= generar_digipymon_aleatorio()
-       print("nombre: " + yuyu.nombre + "vida: " + yuyu.vida + "ataque: "+ yuyu.ataque + "tipo: "+ yuyu.tipo + "nivel: "+ yuyu.nivel)
+       print(" nombre: " + yuyu.nombre , " vida: " + str(yuyu.vida) , " ataque: "+ str(yuyu.ataque) , " tipo: "+ yuyu.tipo , " nivel: "+ str(yuyu.nivel))
        usar_item(yuyu)
 
-main()
+main() 
