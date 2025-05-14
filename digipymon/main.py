@@ -8,7 +8,7 @@ import random
 def generar_digipymon_aleatorio():
         lista_digipymon = ListaNombres() 
         
-        nombre = lista_digipymon.lista_nombres_digipymons
+        nombre = lista_digipymon.obtener_nombre_digipymon()
         lista_tipo = ["fuego","agua","planta"]    
 
         vida = random.randint(10, 20)
@@ -16,9 +16,9 @@ def generar_digipymon_aleatorio():
         nivel = random.randint(1, 3)
         tipo = random.choice(lista_tipo)
 
-        doyi = Digipymon(nombre,vida,ataque,nivel,tipo)
+        doyi = Digipymon(nombre,vida,ataque,tipo,nivel)
 
-        return doyi.__str__()           
+        return doyi       
     
     
 
@@ -60,9 +60,9 @@ def usar_item(yuyu):
         print("¿En que digipymon deseas usarlo?")
         
         if input == 2:
-            print("Quieres usarlo en  doyi") 
-            #energetica = doyi.__getattribute__vida + 10   
-            #doyi.__setattr__vida =energetica
+            print("Quieres usarlo en  yuyu") 
+            energetica = yuyu.__getattribute__vida + 10   
+            yuyu.__setattr__vida = energetica
         else:
             
             input == 2
@@ -71,13 +71,14 @@ def usar_item(yuyu):
         
         if input == 1:
             print("Quieres usarlo en  doyi") 
-            #tembolona = doyi.__getattribute__ataque + 10   
-            #doyi.__setattr__ataque =tembolona
+            tembolona = yuyu.__getattribute__ataque + 10   
+            yuyu.__setattr__ataque =tembolona
                 
         
 
 def main():
        yuyu= generar_digipymon_aleatorio()
-       #usar_item()
+       print("nombre: " + yuyu.nombre + "")
+       usar_item(yuyu)
 
 main()
