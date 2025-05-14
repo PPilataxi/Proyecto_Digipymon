@@ -1,7 +1,7 @@
 class Inventario():
     
-    def __init__(objetos):
-       objetos =  {}
+    def __init__(self):
+       self.objetos =  {}
    
     def añadir_objeto(self,nombre , cantidad ):
         nombre = "patata"
