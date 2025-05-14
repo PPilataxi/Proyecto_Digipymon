@@ -10,6 +10,6 @@ class Digipymon():
 
        
 
-        def _str_():
+        def __str__():
            
-            print(f"Nombre: {self.nombre}   , Vida: {self.vida} , Ataque: {self.ataque} , Tipo :{self.tipo}  , Nivel: {self.nivel}" )
+             f"Nombre: {self.nombre}   , Vida: {self.vida} , Ataque: {self.ataque} , Tipo :{self.tipo}  , Nivel: {self.nivel}" 

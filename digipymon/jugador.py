@@ -1,36 +1,31 @@
 from digipymon import Digipymon;
 class Jugador():
-    def __init__( self , nombre ,lista_digipymon , cantidad_digipymon , digicoins):
+  def __init__(self, nombre):
+
         self.nombre = nombre
-        self.lista_digipymon = []
+        self.lista_digipymon = ["digi"]
         self.cantidad_digipymon = 0
         self.digicoins = 10
 
+#Creación método para añadir digipymons
+  def añadir_digipymon(self, digipymon):
+        self.lista_digipymon.append(digipymon)
+        self.cantidad_digypymon += 1
+        print(f"{self.nombre} ha añadido a {digipymon} a su ejercito")
 
-        def mostrar_informacion(self):
-            print("Nombre: {self.nombre}, Lista_digipymon: {self.lista_digipymon} " )
+#Creación método para consultar los digipymons que tenemos en nuestra posesión
+  def consultar_digipymon(self):
+        if self.lista_digipymon:
+            for digypymon in self.lista_digipymon:
+                 print("Estos son tus digipymon: " + digypymon)
 
-
-
-
-
-
-
-
-
-
-        def añadir_digipymon(self):
-
-            pilamon = Digipymon() 
-
-            self.lista_digipymon[pilamon] 
-            self.cantidad_digipymon + 1  
-
-        def consultar_digipymon(self):
-
-            print(self.lista_digipymon)
+        else:
+            print(f"{self.nombre} aún no tiene ningún digipymon en su colección")
 
 
-        def consultar_digicoins(self):
 
-            print(self.digicoins)
+#Consultar digicoins
+  def consultar_digicoins(self):
+         print(f"{self.nombre} tiene en su posesión {self.digicoins}")
+
+

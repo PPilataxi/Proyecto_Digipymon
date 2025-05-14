@@ -4,8 +4,8 @@ class Inventario():
        self.objetos =  {}
    
     def añadir_objeto(self,nombre , cantidad ):
-        nombre = "patata"
-        cantidad = 1
+        nombre = nombre
+        cantidad = cantidad
         if nombre in self.objetos:
             print(f'El nombre {nombre} esta y el valor asociado es {self.objetos[cantidad]} ')
             cantidad += 1 
@@ -23,4 +23,4 @@ class Inventario():
            cantidad - 1
         else: cantidad = 0
         del(self.objetos["naranja"])
-        return print(self.objetos)
+        return self.objetos
