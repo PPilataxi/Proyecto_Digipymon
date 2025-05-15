@@ -4,20 +4,20 @@ from inventario import Inventario
 from jugador import Jugador
 from listanombres import ListaNombres
 import random
+def __init__(self):
+    pass
 
-def generar_digipymon_aleatorio():
+
+def generar_digipymon_aleatorio(self, lista_nombres):
         lista_digipymon = ListaNombres() 
         
         nombre = lista_digipymon.obtener_nombre_digipymon()
-        lista_tipo = ["fuego","agua","planta"]    
-
         vida = random.randint(10, 20)
         ataque = random.randint(1, 10)
         nivel = random.randint(1, 3)
+        lista_tipo = ["fuego","agua","planta"] 
         tipo = random.choice(lista_tipo)
-
-        doyi = Digipymon(nombre,vida,ataque,tipo,nivel)
-
+        doyi = (nombre,vida,ataque,tipo,nivel)
         return doyi     
 
 
@@ -41,22 +41,41 @@ def menu():
     
 
 
-def buscar_digipymon(self, jugador, inventario):
+def buscar_digipymon(self, jugador, inventario, lista_nombres):
 #Introducción a la función
     print("******Es la hora de buscar digipymons******")
-    digipymon_salvaje = self.generar_digipymon_aleatorio(lista_nombres)
-    print(f"¡OMFG, {digipymon_salvaje} apareció para torturarte!")
+    el_rebelde = self.generar_digipymon_aleatorio(lista_nombres)
+    print(f"¡OMFG, {el_rebelde} apareció para torturarte!")
 
 #Probabilidad de capturar el digipyball
-    probabilidad_captura = max(0, 100 - (digipymon_salvaje.nivel * 10))
-    print(f"Tienes un {probabilidad_captura}% de posibilidades de llevarte este digipymon")
+    captura_porcentaje= max(0, 100 - (el_rebelde.nivel * 10))
+    print(f"Tienes un {captura_porcentaje}% de posibilidades de llevarte este digipymon")
 
 #Decisión de captura
     while True:
-        decision = input("¿Quiéres intentar atraparlo con tus digibolas ;) (si/no)?").lower()
-
-        if decision == si:
-            if "Digipyball" in inventario.objetos and inventario.objetos
+        si_no = input("¿Quiéres intentar atraparlo con tus digibolas ;) (si/no)?").lower()
+        if si_no == "si":
+            if "Digipyball" in inventario.objetos and inventario.objetos["Digipyballs"] > 0:
+                if jugador.cantidad_digipymon < 6:
+                    inventario.usar_objeto("Digipyball")
+                    if random.randint(1,100) <= captura_porcentaje:
+                        print(f"Lograste capturar a este digipymon {el_rebelde.nombre}, Felicidades, era muy dificil")
+                        jugador.añadir_digipymon(el_rebelde)
+                        break
+                    else:
+                        print(f"¡¿Como se te puede haber escapado {el_rebelde.nombre}?! Afina la punteria Broh...")
+                        break
+                else:
+                    print("Tienes todo tu ejercito completo")
+                    break
+            else:
+                print("¿No te has dado cuenta de que no tienes Digyballs? COMPRA YA CARAJO!!!")
+                break
+        elif si_no == no:
+            print("Le tuviste miedo al exito e hiciste bomba de humo frente al digipymon")
+            break
+        else:
+            print("O no sabes leer, o no sabes escribir, ponga si o no por favor.")
 
 
 def combate():
