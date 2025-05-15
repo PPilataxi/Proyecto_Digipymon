@@ -32,12 +32,25 @@ def combate():
 def digishop(jugador, inventario):
     print("*****Bienvenido a la digishop*****")
     print("*****¿Qué desea comprar?*****")
-    print("a. Digipyballs: 5 digicoins")
-    print("b. Energetica: 3 digicoins (+ 10p digisalud)")
-    print("c. Trembolóna: 4 digicoins (+5p de aura )")
+    print("1. Digipyballs ------> 5 digicoins")
+    print("2. Energetica -----> 3 digicoins (+ 10p digisalud)")
+    print("3. Trembolóna -----> 4 digicoins (+5p de aura )")
+    
+    # Introducir por teclado lo que se quiere comprar
+    opcion = input()
+    # Comprobar si tiene dinero suficiente para comprar lo que se ha elegido
+    if opcion == 1:
+        
+        
+        
+
+    # Si tiene dinero: se añade al inventario el objeto y se resta el dinero del bolsillo
+    # Si no tiene dinero: le dices que esta pobre y se va de la tienda
+    
     
 
 def usar_item():
     pass
 
-main()
+def main():
+    pass

@@ -15,3 +15,12 @@ class ListaNombres():
     def obtener_nombre_entrenador(self):
                entrenadoraleatorio = self.lista_nombres_entrenadores[random.randint(0, 20)] 
                return print(entrenadoraleatorio)
+    
+
+def main():
+       nombre = ListaNombres()
+       ListaNombres.obtener_nombre_digipymon
+
+
+main()
+print(ListaNombres.obtener_nombre_entrenador)

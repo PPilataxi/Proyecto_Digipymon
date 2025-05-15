@@ -3,7 +3,7 @@ class Jugador:
     def __init__(self, nombre):
 
         self.nombre = nombre
-        self.lista_digipymon = []
+        self.lista_digipymon = ["pollo"]
         self.cantidad_digipymon = 0
         self.digicoins = 10
 
@@ -27,3 +27,4 @@ class Jugador:
 #Consultar digicoins
     def consultar_digicoins(self):
          print(f"{self.nombre} tiene en su posesión {self.digicoins}")
+         
