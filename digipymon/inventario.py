@@ -11,15 +11,19 @@ class Inventario():
             self.objetos.update({nombre:mas})
 
         else:
-            print(f'{nombre} no esta en la objetos')
+            print(f'{nombre} no esta en el inventario')
+            print(f'{nombre} se añadira al inventario')
             self.objetos.update({nombre:cantidad})
 
 
     def usar_objeto(self,objeto):
-        cantidad = cantidad
-        self.objetos = self.objetos
-        if cantidad < 0:
-           menos =   - 1  
-        else: cantidad = 0
-        del(self.objetos["naranja"])
-        return self.objetos
+        
+        
+        if {self.objetos[objeto]} < 0:
+           menos = {self.objetos[objeto]}  - 1  
+        elif menos == 0:
+            del(self.objetos[objeto])
+            return self.objetos
+
+        else:
+            print(f"No dispones {objeto} entre tus objetos personales COMPRAAAA, VIVA EL CAPITALISMO")
