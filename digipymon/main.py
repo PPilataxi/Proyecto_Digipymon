@@ -5,6 +5,27 @@ from jugador import Jugador
 from listanombres import ListaNombres
 import random
 
+jugador1 = Jugador("tifon")
+
+
+bolsa = Inventario()
+bolsa.añadir_objeto("energetica",1)
+bolsa.añadir_objeto("Digipyballs",3)
+def menu():
+        #salir = True
+        #while salir == True: 
+         print("*****¿Qué desea hacer?*****")
+         print("1. Buscar digipymon")
+         print("2. Luchar contra un entrenador")
+         print("3. Ir a la tienda")
+         print("4. Usar OBjetos")
+         print("5. Consultar inventario")
+         print("6. Consultar digipymon")
+         print("7. Buscar digipymon")
+        
+         eleccion =input()
+         return eleccion       
+        
 def generar_digipymon_aleatorio():
         lista_digipymon = ListaNombres() 
         
@@ -20,19 +41,9 @@ def generar_digipymon_aleatorio():
 
         return doyi       
     
-    
 
-def menu():
-        print("*****¿Qué desea hacer?*****")
-        print("1. Buscar digipymon")
-        print("2. Luchar contra un entrenador")
-        print("3. Ir a la tienda")
-        print("4. Usar OBjetos")
-        print("5. Consultar inventario")
-        print("6. Consultar digipymon")
-        print("7. Buscar digipymon")
 
-        return menu
+
 
 
 
@@ -43,52 +54,53 @@ def combate():
         pass
 
 def digishop():
-        jugador1 = Jugador("tifon")
-        bolsa = Inventario()
         
-        print("*****Bienvenido a la digishop*****")
-        print("*****¿Qué desea comprar?*****")
-        print("a. Digipyballs: 5 digicoins")
-        print("b. Energetica: 3 digicoins (+ 10p digisalud)")
-        print("c. Trembolóna: 4 digicoins (+5p de aura )")
-        salir_tienda = True
-        while salir_tienda == True:
-         jugador1.consultar_digicoins()
-         opcion = input() 
-         if opcion == "a" :
+       salir_tienda = True
+       while salir_tienda == True:
+        
+         print("*****Bienvenido a la digishop*****")
+         print("*****¿Qué desea comprar?*****")
+         print("a. Digipyballs: 5 digicoins")
+         print("b. Energetica: 3 digicoins (+ 10p digisalud)")
+         print("c. Trembolóna: 4 digicoins (+5p de aura )")
+         salir_tienda = True
+         while salir_tienda == True:
+          jugador1.consultar_digicoins()
+          opcion = input() 
+          if opcion == "a" :
                if jugador1.digicoins < 5:
                     print("no tienes fondos")
-                    salir_tienda == False
+                    salir_tienda = False
                else:      
                 bolsa.añadir_objeto("Digipyballs",1)
                 print(bolsa.objetos)
                 compra1 =jugador1.digicoins - 5
                 jugador1.digicoins = compra1
                 jugador1.consultar_digicoins()
-                salir_tienda == False
-                menu()
-         elif opcion == "b" :
+                salir_tienda = False
+                
+          elif opcion == "b" :
                 if jugador1.digicoins < 3:
                     print("no tienes fondos")
-                    salir_tienda == False
+                    salir_tienda = False
                 else:    
                  bolsa.añadir_objeto("energetica",1)
                  print(bolsa.objetos)
                  compra2 =jugador1.digicoins - 3
                  jugador1.digicoins = compra2
                  jugador1.consultar_digicoins()
-                 salir_tienda == False
-         elif opcion == "c" :
+                 salir_tienda = False
+          elif opcion == "c" :
                 if jugador1.digicoins < 4:
                     print("no tienes fondos")
-                    salir_tienda == False
+                    salir_tienda = False
                 else:    
                  bolsa.añadir_objeto("Trembolona",1)
                  print(bolsa.objetos)
                  compra3 =jugador1.digicoins - 4
                  jugador1.digicoins = compra3
                  jugador1.consultar_digicoins()
-                 salir_tienda == False   
+                 salir_tienda = False   
 
 def usar_item(yuyu,bolsa):
         
@@ -121,17 +133,20 @@ def usar_item(yuyu,bolsa):
             tembolona = yuyu.ataque + 5   
             yuyu.ataque =tembolona
             print(  " ataque: "+ str(yuyu.ataque) )    
-        
 
 def main():
        yuyu= generar_digipymon_aleatorio()
        #print(" nombre: " + yuyu.nombre , " vida: " + str(yuyu.vida) , " ataque: "+ str(yuyu.ataque) , " tipo: "+ yuyu.tipo , " nivel: "+ str(yuyu.nivel))
+       print("Un dia  decidiste conquistar el mundo de los digipymon para ello,  ")
+       print("te embarcaste en una gran aventura  ")
+       nombre_jugador = input("Dinos tu nombre ")
+       jugador1.nombre = nombre_jugador
+       opcion = menu()
        
-       menu()
-       eleccion =input()
-       if eleccion == str(3):
+       if opcion == str(3):
          digishop()
-       elif eleccion == str(4): 
-         usar_item(yuyu, bolsa = Inventario())
-         print( " vida: " + str(yuyu.vida) , " ataque: "+ str(yuyu.ataque) )
+       elif opcion == str(4): 
+          usar_item(yuyu, bolsa = Inventario())
+          print( " vida: " + str(yuyu.vida) , " ataque: "+ str(yuyu.ataque) )
+      
 main() 

@@ -4,12 +4,11 @@ class Inventario():
        self.objetos =  {}
    
     def añadir_objeto(self,nombre , cantidad ):
-        nombre = nombre
-        cantidad = cantidad
+        
         if nombre in self.objetos:
-            print(f'El nombre {nombre} esta y el valor asociado es {self.objetos[cantidad]} ')
-            cantidad += 1 
-            self.objetos.update({cantidad})
+            print(f'El nombre {nombre} esta y el valor asociado es {self.objetos[nombre]}')
+            mas =  self.objetos[nombre] + 1  
+            self.objetos.update({nombre:mas})
 
         else:
             print(f'{nombre} no esta en la objetos')
