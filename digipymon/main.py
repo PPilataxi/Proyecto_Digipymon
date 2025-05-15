@@ -49,15 +49,14 @@ def buscar_digipymon(self, jugador, inventario):
 
 #Probabilidad de capturar el digipyball
     probabilidad_captura = max(0, 100 - (digipymon_salvaje.nivel * 10))
-    print(f"Probabilidad de captura: {probabilidad_captura}%")
+    print(f"Tienes un {probabilidad_captura}% de posibilidades de llevarte este digipymon")
 
 #Decisión de captura
     while True:
         decision = input("¿Quiéres intentar atraparlo con tus digibolas ;) (si/no)?").lower()
 
         if decision == si:
-            jugador.cantidad_digipymons
-        elif decision == no:
+            if "Digipyball" in inventario.objetos and inventario.objetos
 
 
 def combate():
@@ -72,30 +71,30 @@ def digishop(jugador, inventario):
         print("d. Volver al menú")
         
         while True:
-            opcion = int(input("Elija un objeto que desea comprar: "))
+            opcion = int(input("Elija un objeto que desea comprar: ").lower())
             #Condición if 
-            if opcion == 1:
+            if opcion == a:
                 if jugador.consultar_digicoins >= 5:
                     inventario.añadir_objeto("Digipyball", 1)
                     jugador.consultar_digicoins -=5
                     print("Has apostado a las digipyballs")
                 else:
                     print("Andas pobre, ponte a chambear")
-            elif opcion == 2:
+            elif opcion == b:
                 if jugador.consultar_digicoins >= 3:
                     inventario.añadir_objeto("Energetica", 1)
                     jugador.consultar_digicoins -=3
                     print("Has decidido poner a tu digipymon con el corazón al fallo comprando la ENERGETICA")
                 else:
                     print("Andas pobre, apuesta todo lo que tienes al rojo")
-            elif opcion == 3:
+            elif opcion == c:
                 if jugador.consultar_digicoins >= 4:
                     inventario.añadir_objeto("Trembolona", 4)
                     jugador.consultar_digicoins -=4
                     print("Tu digipymon se pondrá mamadisimo con la TREMBOLONA")
                 else:
                     print("Andas pobre, culpa de Pedro Sanchez, DIMISIÓN")
-            elif opcion == 4:
+            elif opcion == d:
                 break
             else:
                 print("Opción valida")
