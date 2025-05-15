@@ -14,17 +14,23 @@ def menu():
     print("1. Buscar digipymon")
     print("2. Luchar contra un entrenador")
     print("3. Ir a la tienda")
-    print("4. Usar OBjetos")
+    print("4. Usar Objetos")
     print("5. Consultar inventario")
     print("6. Consultar digipymon")
     print("7. Buscar digipymon")
 
+    opcion = int(input("Elige una opción: "))
+    if 1 <= opcion <= 7:
+        return opcion
+    else:
+        print("ERROR, no existe esa opción. Ingrese una opción correcta")
     return menu
     
 
 
 def buscar_digipymon():
     pass
+    
 
 def combate():
     pass
