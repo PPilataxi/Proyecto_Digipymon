@@ -3,10 +3,10 @@ class Jugador():
   def __init__(self, nombre):
 
         self.nombre = nombre
-        self.lista_digipymon = ["digi"]
+        self.lista_digipymon = []
         self.cantidad_digipymon = 0
         self.digicoins = 10
-
+ 
 #Creación método para añadir digipymons
   def añadir_digipymon(self, digipymon):
         self.lista_digipymon.append(digipymon)
