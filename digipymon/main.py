@@ -6,7 +6,20 @@ from listanombres import ListaNombres
 import random
 
 def generar_digipymon_aleatorio():
-    pass
+        lista_digipymon = ListaNombres() 
+        
+        nombre = lista_digipymon.obtener_nombre_digipymon()
+        lista_tipo = ["fuego","agua","planta"]    
+
+        vida = random.randint(10, 20)
+        ataque = random.randint(1, 10)
+        nivel = random.randint(1, 3)
+        tipo = random.choice(lista_tipo)
+
+        doyi = Digipymon(nombre,vida,ataque,tipo,nivel)
+
+        return doyi     
+
 
 
 def menu():
@@ -62,23 +75,23 @@ def digishop(jugador, inventario):
             opcion = int(input("Elija un objeto que desea comprar: "))
             #Condición if 
             if opcion == 1:
-                if Jugador.consultar_digicoins >= 5:
-                    Inventario.añadir_objeto("Digipyball", 1)
-                    Jugador.consultar_digicoins -=5
+                if jugador.consultar_digicoins >= 5:
+                    inventario.añadir_objeto("Digipyball", 1)
+                    jugador.consultar_digicoins -=5
                     print("Has apostado a las digipyballs")
                 else:
                     print("Andas pobre, ponte a chambear")
             elif opcion == 2:
-                if Jugador.consultar_digicoins >= 3:
-                    Inventario.añadir_objeto("Energetica", 1)
-                    Jugador.consultar_digicoins -=3
+                if jugador.consultar_digicoins >= 3:
+                    inventario.añadir_objeto("Energetica", 1)
+                    jugador.consultar_digicoins -=3
                     print("Has decidido poner a tu digipymon con el corazón al fallo comprando la ENERGETICA")
                 else:
                     print("Andas pobre, apuesta todo lo que tienes al rojo")
             elif opcion == 3:
-                if Jugador.consultar_digicoins >= 4:
-                    Inventario.añadir_objeto("Trembolona", 4)
-                    Jugador.consultar_digicoins -=4
+                if jugador.consultar_digicoins >= 4:
+                    inventario.añadir_objeto("Trembolona", 4)
+                    jugador.consultar_digicoins -=4
                     print("Tu digipymon se pondrá mamadisimo con la TREMBOLONA")
                 else:
                     print("Andas pobre, culpa de Pedro Sanchez, DIMISIÓN")
@@ -86,7 +99,7 @@ def digishop(jugador, inventario):
                 break
             else:
                 print("Opción valida")
-            print(f"Te quedan: {Jugador.consultar_digicoins}")
+            print(f"Te quedan: {jugador.consultar_digicoins}")
 
 
 
