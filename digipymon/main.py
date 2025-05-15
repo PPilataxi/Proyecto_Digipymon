@@ -28,9 +28,28 @@ def menu():
     
 
 
-def buscar_digipymon():
-    pass
-    
+def buscar_digipymon(self, jugador, inventario):
+#Introducción a la función
+    print("******Es la hora de buscar digipymons******")
+    digipymon_salvaje = self.generar_digipymon_aleatorio(lista_nombres)
+    print(f"¡OMFG, {digipymon_salvaje} apareció para torturarte!")
+
+#Probabilidad de capturar el digipyball
+    probabilidad_captura = max(0, 100 - (digipymon_salvaje.nivel * 10))
+    print(f"Probabilidad de captura: {probabilidad_captura}%")
+
+#Decisión de captura
+    while True:
+        decision = input("¿Quiéres intentar atraparlo con tus digibolas ;) (si/no)?").lower()
+
+        if decision == si:
+            jugador.cantidad_digipymons
+        elif decision == no:
+
+        else:
+            
+            break
+
 
 def combate():
     pass
@@ -38,14 +57,18 @@ def combate():
 def digishop(jugador, inventario):
     print("*****Bienvenido a la digishop*****")
     print("*****¿Qué desea comprar?*****")
-    print("1. Digipyballs ------> 5 digicoins")
-    print("2. Energetica -----> 3 digicoins (+ 10p digisalud)")
-    print("3. Trembolóna -----> 4 digicoins (+5p de aura )")
-    
-    # Introducir por teclado lo que se quiere comprar
-    opcion = input()
-    # Comprobar si tiene dinero suficiente para comprar lo que se ha elegido
-    if opcion == 1:
+    print("a. Digipyballs: 5 digicoins")
+    print("b. Energetica: 3 digicoins (+ 10p digisalud)")
+    print("c. Trembolóna: 4 digicoins (+5p de aura )")
+    jugador1 = jugador()
+    salir_tienda = True
+    while salir_tienda == True:
+        jugador1.consultar_digicoins()
+        opcion = input() 
+        if opcion == "a" :
+            if jugador1.digicoins < 5:
+                print("no tienes fondos")
+
         
         
         

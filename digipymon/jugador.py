@@ -1,9 +1,9 @@
-class Jugador:
-#Creación de métodos por parámetros
+from digipymon import Digipymon;
+class Jugador():
     def __init__(self, nombre):
 
         self.nombre = nombre
-        self.lista_digipymon = ["pollo"]
+        self.lista_digipymon = []
         self.cantidad_digipymon = 0
         self.digicoins = 10
 
@@ -17,8 +17,7 @@ class Jugador:
     def consultar_digipymon(self):
         if self.lista_digipymon:
             for digypymon in self.lista_digipymon:
-                 print("Estos son tus digipymon: " + digypymon)
-
+                print("Estos son tus digipymon: " + digypymon)
         else:
             print(f"{self.nombre} aún no tiene ningún digipymon en su colección")
 
@@ -26,5 +25,4 @@ class Jugador:
 
 #Consultar digicoins
     def consultar_digicoins(self):
-         print(f"{self.nombre} tiene en su posesión {self.digicoins}")
-         
+        print(f"{self.nombre} tiene en su posesión {self.digicoins} digicoins")
