@@ -8,8 +8,7 @@ class Inventario():
             self.objetos[nombre] += cantidad
         else:
             self.objetos[nombre]= cantidad
-
-
+            
     def usar_objeto(self, nombre_objeto):
         if nombre_objeto in self.objetos:
             self.objetos[nombre_objeto] -=1
