@@ -1,8 +1,8 @@
 class Inventario():
     
-    def __init__(self,objetos):
-       self.objetos =  {}
-   
+    def __init__(self,):
+        self.objetos =  {}
+
     def añadir_objeto(self,nombre , cantidad ):
         if nombre in self.objetos:
             self.objetos[nombre] += cantidad
@@ -10,11 +10,10 @@ class Inventario():
             self.objetos[nombre]= cantidad
 
 
-    def usar_objeto(self):
-        cantidad = 1
-        self.objetos = {"patata" : 1,"naranja": 2,"manzana": 3}
-        if cantidad < 0:
-           cantidad - 1
-        else: cantidad = 0
-        del(self.objetos["naranja"])
-        return print(self.objetos)
+    def usar_objeto(self, nombre_objeto):
+        if nombre_objeto in self.objetos:
+            self.objetos[nombre_objeto] -=1
+            if self.objetos[nombre_objeto] == 0:
+                del self.objetos [nombre_objeto]
+        else:
+            print(f"No dispones {nombre_objeto} entre tus objetos personales COMPRAAAA, VIVA EL CAPITALISMO")

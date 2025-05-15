@@ -46,37 +46,61 @@ def buscar_digipymon(self, jugador, inventario):
             jugador.cantidad_digipymons
         elif decision == no:
 
-        else:
-            
-            break
-
 
 def combate():
     pass
 
 def digishop(jugador, inventario):
-    print("*****Bienvenido a la digishop*****")
-    print("*****¿Qué desea comprar?*****")
-    print("a. Digipyballs: 5 digicoins")
-    print("b. Energetica: 3 digicoins (+ 10p digisalud)")
-    print("c. Trembolóna: 4 digicoins (+5p de aura )")
-    jugador1 = jugador()
-    salir_tienda = True
-    while salir_tienda == True:
-        jugador1.consultar_digicoins()
-        opcion = input() 
-        if opcion == "a" :
-            if jugador1.digicoins < 5:
-                print("no tienes fondos")
+        print("*****Bienvenido a la digishop*****")
+        print("*****¿Qué desea comprar?*****")
+        print("a. Digipyballs: 5 digicoins")
+        print("b. Energetica: 3 digicoins (+ 10p digisalud)")
+        print("c. Trembolóna: 4 digicoins (+5p de aura )")
+        print("d. Volver al menú")
+        
+        while True:
+            opcion = int(input("Elija un objeto que desea comprar: "))
+            #Condición if 
+            if opcion == 1:
+                if Jugador.consultar_digicoins >= 5:
+                    Inventario.añadir_objeto("Digipyball", 1)
+                    Jugador.consultar_digicoins -=5
+                    print("Has apostado a las digipyballs")
+                else:
+                    print("Andas pobre, ponte a chambear")
+            elif opcion == 2:
+                if Jugador.consultar_digicoins >= 3:
+                    Inventario.añadir_objeto("Energetica", 1)
+                    Jugador.consultar_digicoins -=3
+                    print("Has decidido poner a tu digipymon con el corazón al fallo comprando la ENERGETICA")
+                else:
+                    print("Andas pobre, apuesta todo lo que tienes al rojo")
+            elif opcion == 3:
+                if Jugador.consultar_digicoins >= 4:
+                    Inventario.añadir_objeto("Trembolona", 4)
+                    Jugador.consultar_digicoins -=4
+                    print("Tu digipymon se pondrá mamadisimo con la TREMBOLONA")
+                else:
+                    print("Andas pobre, culpa de Pedro Sanchez, DIMISIÓN")
+            elif opcion == 4:
+                break
+            else:
+                print("Opción valida")
+            print(f"Te quedan: {Jugador.consultar_digicoins}")
 
-        
-        
-        
 
-    # Si tiene dinero: se añade al inventario el objeto y se resta el dinero del bolsillo
-    # Si no tiene dinero: le dices que esta pobre y se va de la tienda
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 
 def usar_item():
     pass

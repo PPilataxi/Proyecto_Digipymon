@@ -1,7 +1,5 @@
-from digipymon import Digipymon;
 class Jugador():
     def __init__(self, nombre):
-
         self.nombre = nombre
         self.lista_digipymon = []
         self.cantidad_digipymon = 0
@@ -17,9 +15,9 @@ class Jugador():
     def consultar_digipymon(self):
         if self.lista_digipymon:
             for digypymon in self.lista_digipymon:
-                print("Estos son tus digipymon: " + digypymon)
+                print(f"Estos son tus digipymon: {digypymon}")
         else:
-            print(f"{self.nombre} aún no tiene ningún digipymon en su colección")
+            print("Aún no tiene ningún digipymon en su colección, VE A CAPTURAR")
 
 
 
