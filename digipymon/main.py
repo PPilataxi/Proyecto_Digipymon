@@ -5,16 +5,22 @@ from jugador import Jugador
 from listanombres import ListaNombres
 import random
 
-class Main:    
+class Main: 
+    def __init__(self):
+        self.jugador1 = Jugador(None)
+        self.bolsa = Inventario()
+        self.lista_digipymon = ListaNombres()
+        self.doyi = None
+        
     def historia(self):
-        self.self.jugador1 = Jugador(None)
+        
         nombre_jugador = input("Dinos tu nombre ")
-        self.self.jugador1.nombre = nombre_jugador
+        self.jugador1.nombre = nombre_jugador
         
         print("Un dia  decidiste conquistar el mundo de los digipymon para ello,  ")
         print("te embarcaste en una gran aventura  ")
-        self.añadir_objeto("energetica",1)
-        self.añadir_objeto("Digipyball",3)
+        self.bolsa.añadir_objeto("energetica",1)
+        self.bolsa.añadir_objeto("Digipyball",3)
         print("empiezas con una energetica y 3 digiballs")
 
     def menu(self):
@@ -51,14 +57,15 @@ class Main:
 
 
     def buscar_digipymon(self):
-        self.bolsa = Inventario()
+        
+        self.el_rebelde =self.generar_digipymon_aleatorio()
     #Introducción a la función
         print("******Es la hora de buscar digipymons******")
         
-        print(f"¡OMFG, {el_rebelde} apareció para torturarte!")
+        print(f"¡OMFG, {self.el_rebelde} apareció para torturarte!")
 
     #Probabilidad de capturar el digipyball
-        captura_porcentaje= max(0, 100 - (el_rebelde.nivel * 10))
+        captura_porcentaje= max(0, 100 - (self.el_rebelde.nivel * 10))
         print(f"Tienes un {captura_porcentaje}% de posibilidades de llevarte este digipymon")
 
     #Decisión de captura
@@ -71,11 +78,11 @@ class Main:
                         self.bolsa.usar_objeto("Digipyball") 
                         print(self.bolsa.objetos )
                         if random.randint(1,100) <= captura_porcentaje:
-                            print(f"Lograste capturar a este digipymon {el_rebelde.nombre}, Felicidades, era muy dificil")
-                            self.jugador1.añadir_digipymon(el_rebelde)
+                            print(f"Lograste capturar a este digipymon {self.el_rebelde.nombre}, Felicidades, era muy dificil")
+                            self.jugador1.añadir_digipymon(self.el_rebelde)
                             break
                         else:
-                            print(f"¡¿Como se te puede haber escapado {el_rebelde.nombre}?! Afina la punteria Broh...")
+                            print(f"¡¿Como se te puede haber escapado {self.el_rebelde.nombre}?! Afina la punteria Broh...")
                             break
                     else:
                         print("Tienes todo tu ejercito completo")
@@ -100,7 +107,7 @@ class Main:
         print(f"OMG, apareció {rival.nombre} y se quiere hacer un 1pa1 contra tí.")
 
         for x in range(self.jugador1.cantidad_digipymon):
-            rival.añadir_digipymon(self.doyi.generar_digipymon_aleatorio(lista_digipymon))
+            rival.añadir_digipymon(self.generar_digipymon_aleatorio(self.lista_digipymon))
 
         print(f"{rival.nombre} tiene reclutado a los siguientes Digipymons")
         for i, digipymon in enumerate(rival.lista_digipymon):
@@ -253,7 +260,7 @@ class Main:
                 print("Quieres usar  trembolona")
                 print("¿En que digipymon deseas usarlo?")
                 num1 = int(input("Pulsa 1 para usarlo en "+ self.doyi.nombre ,
-                            "2 para usarlo en " + el_rebelde.nombre ))
+                            "2 para usarlo en " + self.el_rebelde.nombre ))
                 if num1 == 1:
                     print("Quieres usarlo en  self.doyi") 
                     tembolona = self.doyi.ataque + 5   
@@ -278,7 +285,7 @@ class Main:
         exit_guarderia = True
         while exit_guarderia: 
             self.jugador1.consultar_digipymon(self.digipymon)
-            #print("digipymon1: " + self.doyi.nombre ,"digipymon1: " + el_rebelde.nombre )
+            #print("digipymon1: " + self.doyi.nombre ,"digipymon1: " + self.el_rebelde.nombre )
             exit_guarderia = False
         
 
@@ -289,27 +296,29 @@ class Main:
         
       
     #print(self.jugador1)
-     print("este es tu digipymon inicial ")
+        print("este es tu digipymon inicial ")
     #print(" nombre: " + self.doyi.nombre , " vida: " + str(self.doyi.vida) , " ataque: "+ str(self.doyi.ataque) , " tipo: "+ self.doyi.tipo , " nivel: "+ str(self.doyi.nivel))
-    salir =True
-    while salir:   
-        opcion = menu()
-        if opcion == 1:
-            buscar_digipymon()
-        if opcion == 2:
-            combate()   
-        if opcion == 3:
-            digishop()
-        elif opcion == 4: 
-            usar_item()
-        elif opcion == 5: 
-            Consultar_inventario() 
-        elif opcion == 6: 
-            Consultar_digipymons()
-        elif opcion == 7: 
-            print("saliendo del programa")
-            salir = False
+        salir =True
+        while salir:   
+            opcion = self.menu()
+            if opcion == 1:
+                self.buscar_digipymon()
+            if opcion == 2:
+                self.combate()   
+            if opcion == 3:
+                self.digishop()
+            elif opcion == 4: 
+                self.usar_item()
+            elif opcion == 5: 
+                self.Consultar_inventario() 
+            elif opcion == 6: 
+                self.Consultar_digipymons()
+            elif opcion == 7: 
+                print("saliendo del programa")
+                salir = False
                 
 
       
-    main() 
+if __name__==    "__main__":
+    videojuego = Main()
+    videojuego.main()
