@@ -160,7 +160,7 @@ def usar_item(yuyu):
         print(bolsa.objetos )
         print("Que item deseas usar ?")
         num2 = int(input("Pulsa 1 para usar energetica " \
-                         "2 para usar trembolona"))
+                         "2 para usar trembolona " ))
         
         print("has pulsado   " + str(num2))   
         if num2 == 1:
@@ -168,7 +168,7 @@ def usar_item(yuyu):
          print("Quieres usar  energetica")
         print("¿En que digipymon deseas usarlo?")
         num1 = int(input("Pulsa 1 para usarlo en yuyu " \
-                         "2 para usarlo en yaya"))
+                         "2 para usarlo en yaya " ))
         
          
         if num1 == 1:
@@ -183,13 +183,13 @@ def usar_item(yuyu):
             print("Quieres usar  trembolona")
             print("¿En que digipymon deseas usarlo?")
         num1 = int(input("Pulsa 1 para usarlo en yuyu " \
-                         "2 para usarlo en yaya"))
+                         "2 para usarlo en yaya " ))
         if num1 == 1:
             print("Quieres usarlo en  yuyu") 
             tembolona = yuyu.ataque + 5   
             yuyu.ataque =tembolona
             print(  " el ataque de yuyu ahora "+ str(yuyu.ataque) )    
-            bolsa.usar_objeto(objeto="energetica")
+            bolsa.usar_objeto()
             print(bolsa.objetos)
 
 def Consultar_inventario(bolsa):

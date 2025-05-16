@@ -16,14 +16,19 @@ class Inventario():
             self.objetos.update({nombre:cantidad})
 
 
+ 
+
     def usar_objeto(self,objeto):
         
-        
-        if {self.objetos[objeto]} < 0:
-           menos = {self.objetos[objeto]}  - 1  
-        elif menos == 0:
-            del(self.objetos[objeto])
-            return self.objetos
+         if objeto in self.objetos:
+       
+           self.objetos[objeto] -= 1  
+           print(f"has usado {objeto}.quedan {self.objetos[objeto]} unidades")
 
-        else:
+           if self.objetos[objeto] == 0:
+                del self.objetos[objeto]
+                print (f"el objeto {objeto} se ha eliminado del inventario") 
+
+         else:
             print(f"No dispones {objeto} entre tus objetos personales COMPRAAAA, VIVA EL CAPITALISMO")
+     
