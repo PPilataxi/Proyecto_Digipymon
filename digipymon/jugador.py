@@ -10,14 +10,14 @@ class Jugador():
 #Creación método para añadir digipymons
   def añadir_digipymon(self, digipymon):
         self.lista_digipymon.append(digipymon)
-        self.cantidad_digypymon += 1
+        self.cantidad_digipymon += 1
         print(f"{self.nombre} ha añadido a {digipymon} a su ejercito")
 
 #Creación método para consultar los digipymons que tenemos en nuestra posesión
   def consultar_digipymon(self):
         if self.lista_digipymon:
             for digypymon in self.lista_digipymon:
-                 print("Estos son tus digipymon: " + digypymon)
+                 print("Estos son tus digipymon: " )
 
         else:
             print(f"{self.nombre} aún no tiene ningún digipymon en su colección")
