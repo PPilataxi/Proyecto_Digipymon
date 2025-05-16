@@ -78,8 +78,38 @@ def buscar_digipymon(self, jugador, inventario, lista_nombres):
             print("O no sabes leer, o no sabes escribir, ponga si o no por favor.")
 
 
-def combate():
-    pass
+def combate(self, jugador, lista_nombres):
+    if not jugador.lista_digipymon:
+        print("No dispones de ejercito para luchar por la República")
+        return
+    
+    nombre_rival = lista_nombres.obtener_nombre_entrenadores()
+    rival = Enemigo(nombre_rival)
+    print(f"OMG, apareció {rival.nombre} y se quiere hacer un 1pa1 contra tí.")
+
+    for x in range(jugador.cantidad_digipymon):
+        rival.añadir_digipymon(self.generar_digipymon_aleatorio(lista_nombres))
+
+    print(f"{rival.nombre} tiene reclutado a los siguientes Digipymons")
+    for i, digipymon in enumerate(rival.lista_digipymon):
+        print(f"{i + 1 }. {digipymon.nombre} (Vida: {digipymon.vida}, Ataque: {digipymon.ataque})")
+
+    while True:
+        pelea = input("¿Desea enfrentarse en el 1 vs 1 ? (si/no)").lower()
+        if pelea == "si":
+            victoria =0
+            derrota = 0
+            empate = 0
+
+            print("*-*-*-*-* HORA DEL COMBATE *-*-*-*-*")
+            for i in range(min(len(jugador.lista_digipymon, ), len(rival.lista_digipymon))):
+                mi_soldado = jugador.lista_digipymon[i]
+                soldado_rival = rival.lista_digipymon[i]
+                print(f" ----- COMBATE -----")
+                print(f"Va combatir {mi_soldado.nombre} (Vida: {mi_soldado.vida}, Ataque: {mi_soldado.ataque}) ***** VS ***** {soldado_rival.nombre} (Vida: {soldado_rival.vida} Ataque: {soldado_rival.ataque})")
+
+
+
 
 def digishop(jugador, inventario):
         print("*****Bienvenido a la digishop*****")
@@ -133,8 +163,48 @@ def digishop(jugador, inventario):
 
 
 
-def usar_item():
-    pass
+def usar_item(self, jugador, inventario):
+print(bolsa.objetos )
+        print("Que item deseas usar ?")
+        num2 = int(input("Pulsa 1 para usar energetica " \
+                         "2 para usar trembolona " ))
+        
+        print("has pulsado   " + str(num2))   
+        if num2 == 1:
+         
+         print("Quieres usar  energetica")
+        print("¿En que digipymon deseas usarlo?")
+        num1 = int(input("Pulsa 1 para usarlo en yuyu " \
+                         "2 para usarlo en yaya " ))
+        
+         
+        if num1 == 1:
+            print("Quieres usarlo en  yuyu") 
+            energetica = yuyu.vida + 10   
+            yuyu.vida = energetica
+            print( "la vida de yuyu ahora es : " + str(yuyu.vida)  )
+            bolsa.usar_objeto("energetica")
+            print(bolsa.objetos)
+        elif num2 == 2:
+
+            print("Quieres usar  trembolona")
+            print("¿En que digipymon deseas usarlo?")
+        num1 = int(input("Pulsa 1 para usarlo en yuyu " \
+                        "2 para usarlo en yaya " ))
+        if num1 == 1:
+            print("Quieres usarlo en  yuyu") 
+            tembolona = yuyu.ataque + 5   
+            yuyu.ataque =tembolona
+            print(  " el ataque de yuyu ahora "+ str(yuyu.ataque) )    
+            bolsa.usar_objeto()
+            print(bolsa.objetos)
+
+
+
+
+
+pass
+
 
 def main():
     pass
