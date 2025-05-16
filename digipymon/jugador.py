@@ -14,11 +14,11 @@ class Jugador():
         print(f"{self.nombre} ha añadido a {digipymon} a su ejercito")
 
 #Creación método para consultar los digipymons que tenemos en nuestra posesión
-  def consultar_digipymon(self):
+  def consultar_digipymon(self,digipymon):
         if self.lista_digipymon:
             for digypymon in self.lista_digipymon:
-                 print("Estos son tus digipymon: " )
-
+                 print (f"Estos son tus digipymon: {digipymon}" )
+                
         else:
             print(f"{self.nombre} aún no tiene ningún digipymon en su colección")
 
