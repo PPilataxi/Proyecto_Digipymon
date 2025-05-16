@@ -15,10 +15,12 @@ class Enemigo():
       
 
     def __str__(self):
-        return f"Nombre: {self.nombre}, lista_digipymon:{self.lista_digipymon},cantidad_digipymon:{self.cantidad_digipymon}"
+        mensaje= f"Nombre: {self.nombre}, lista_digipymon:{self.lista_digipymon},cantidad_digipymon:{self.cantidad_digipymon}"
+        return mensaje
 
         
-enemego = Enemigo(nombre="patata")
-poyomon =  Digipymon("pollo",12,13,"fuego",2)  
+enemego = Enemigo(nombre="pollo")
 
-enemego.añadir_digipymon(poyomon)
+
+enemego.__str__()
+

@@ -222,7 +222,7 @@ def digishop( ):
             salir_tienda = False 
 
 
-def usar_item(yuyu):
+def usar_item():
         
 
         
@@ -242,7 +242,7 @@ def usar_item(yuyu):
         
          
           if num1 == 1:
-            print("Quieres usarlo en  yuyu") 
+            print("Quieres usarlo en  " + yuyu.nombre) 
             energetica = yuyu.vida + 10   
             yuyu.vida = energetica
             print( "la vida de yuyu ahora es : " + str(yuyu.vida)  )
@@ -253,8 +253,8 @@ def usar_item(yuyu):
 
             print("Quieres usar  trembolona")
             print("¿En que digipymon deseas usarlo?")
-            num1 = int(input("Pulsa 1 para usarlo en yuyu " \
-                         "2 para usarlo en yaya " ))
+            num1 = int(input("Pulsa 1 para usarlo en "+ yuyu.nombre ,
+                          "2 para usarlo en " + el_rebelde.nombre ))
             if num1 == 1:
              print("Quieres usarlo en  yuyu") 
              tembolona = yuyu.ataque + 5   
@@ -267,7 +267,7 @@ def usar_item(yuyu):
 
             print("Quieres  intentar darle una  digiball al digipymon  ")
             print("el digipymon se queda mirando la digiball  , tras 5 minutos la cojes para que pueda centrarse en el combate ")
-            usar_item(yuyu)
+            
 
 def Consultar_inventario():
    exit =True
