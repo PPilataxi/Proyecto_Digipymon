@@ -9,24 +9,10 @@ class Main:
     def __init__(self):
         self.jugador1 = Jugador(None)
         self.bolsa = Inventario()
-        self.lista_digipymon = ListaNombres()
-        self.doyi = None
-        
-    def historia(self):
-        print("Un dia  decidiste conquistar el mundo de los digipymon para ello,  ")
-        print("te embarcaste en una gran aventura  ")
-        nombre_jugador = input("Dinos tu nombre ")
-        self.jugador1.nombre = nombre_jugador
-        
-        
-        self.bolsa.añadir_objeto("energetica",1)
-        self.bolsa.añadir_objeto("Digipyball",3)
-        print("empiezas con una energetica y 3 digiballs")
-        self.generar_digipymon_aleatorio()
-        print("este es tu digipymon inicial ")
+        self.nombre_digipymon = ListaNombres()
+        self.digipymon = None
+        self.el_rebelde = None
 
-        print(" nombre: " + self.doyi.nombre , " vida: " + str(self.doyi.vida) , " ataque: "+ str(self.doyi.ataque) , " tipo: "+ self.doyi.tipo , " nivel: "+ str(self.doyi.nivel))
-        
 
     def menu(self):
         
@@ -45,7 +31,7 @@ class Main:
     def generar_digipymon_aleatorio(self):
             
             
-            nombre = self.obtener_nombre_digipymon()
+            nombre = self.nombre_digipymon.obtener_nombre_digipymon()
             lista_tipo = ["fuego","agua","planta"]    
 
             vida = random.randint(10, 20)
@@ -53,8 +39,10 @@ class Main:
             nivel = random.randint(1, 3)
             tipo = random.choice(lista_tipo)
 
-            self.doyi = Digipymon(nombre,vida,ataque,tipo,nivel)
-            self.añadir_digipymon(self.doyi)
+            return Digipymon(nombre,vida,ataque,tipo,nivel)
+
+            #self.digipymon = Digipymon(self.nombre,self.vida,self.ataque,self.tipo,self.nivel)
+            #self.añadir_digipymon(self.digipymon)
             
         
 
@@ -66,8 +54,8 @@ class Main:
         self.el_rebelde =self.generar_digipymon_aleatorio()
     #Introducción a la función
         print("******Es la hora de buscar digipymons******")
-        
-        print(f"¡OMFG, {self.el_rebelde} apareció para torturarte!")
+        if self.el_rebelde:
+            print(f"¡OMFG, {self.el_rebelde} apareció para torturarte!")
 
     #Probabilidad de capturar el digipyball
         captura_porcentaje= max(0, 100 - (self.el_rebelde.nivel * 10))
@@ -112,7 +100,7 @@ class Main:
         print(f"OMG, apareció {rival.nombre} y se quiere hacer un 1pa1 contra tí.")
 
         for x in range(self.jugador1.cantidad_digipymon):
-            rival.añadir_digipymon(self.generar_digipymon_aleatorio(self.lista_digipymon))
+            rival.añadir_digipymon(self.generar_digipymon_aleatorio())
 
         print(f"{rival.nombre} tiene reclutado a los siguientes Digipymons")
         for i, digipymon in enumerate(rival.lista_digipymon):
@@ -248,15 +236,15 @@ class Main:
             
                 print("Quieres usar  energetica")
                 print("¿En que digipymon deseas usarlo?")
-                num1 = int(input("Pulsa 1 para usarlo en self.doyi " \
+                num1 = int(input("Pulsa 1 para usarlo en self.digipymon " \
                                 "2 para usarlo en yaya " ))
                 
                 
                 if num1 == 1:
-                    print("Quieres usarlo en  " + self.doyi.nombre) 
-                    energetica = self.doyi.vida + 10   
-                    self.doyi.vida = energetica
-                    print( "la vida de self.doyi ahora es : " + str(self.doyi.vida)  )
+                    print("Quieres usarlo en  " + self.digipymon.nombre) 
+                    energetica = self.digipymon.vida + 10   
+                    self.digipymon.vida = energetica
+                    print( "la vida de self.digipymon ahora es : " + str(self.digipymon.vida)  )
                     self.bolsa.usar_objeto("energetica")
                     print(self.bolsa.objetos)
                     self.menu()
@@ -264,13 +252,13 @@ class Main:
 
                 print("Quieres usar  trembolona")
                 print("¿En que digipymon deseas usarlo?")
-                num1 = int(input("Pulsa 1 para usarlo en "+ self.doyi.nombre ,
+                num1 = int(input("Pulsa 1 para usarlo en "+ self.digipymon.nombre ,
                             "2 para usarlo en " + self.el_rebelde.nombre ))
                 if num1 == 1:
-                    print("Quieres usarlo en  self.doyi") 
-                    tembolona = self.doyi.ataque + 5   
-                    self.doyi.ataque =tembolona
-                    print(  " el ataque de self.doyi ahora "+ str(self.doyi.ataque) )    
+                    print("Quieres usarlo en  self.digipymon") 
+                    tembolona = self.digipymon.ataque + 5   
+                    self.digipymon.ataque =tembolona
+                    print(  " el ataque de self.digipymon ahora "+ str(self.digipymon.ataque) )    
                     self.bolsa.usar_objeto("trembolona")
                     print(self.bolsa.objetos)
                     self.menu()
@@ -289,11 +277,27 @@ class Main:
     def Consultar_digipymons(self):
         exit_guarderia = True
         while exit_guarderia: 
-            self.jugador1.consultar_digipymon(self.digipymon)
-            #print("digipymon1: " + self.doyi.nombre ,"digipymon1: " + self.el_rebelde.nombre )
+            self.jugador1.consultar_digipymon()
+
+            #self.jugador1.consultar_digipymon(self.el_rebelde)
+            #print("digipymon1: " + self.digipymon.nombre ,"digipymon1: " + self.el_rebelde.nombre )
             exit_guarderia = False
         
-
+    def historia(self):
+        print("Un dia  decidiste conquistar el mundo de los digipymon para ello,  ")
+        print("te embarcaste en una gran aventura  ")
+        nombre_jugador = input("Dinos tu nombre ")
+        self.jugador1.nombre = nombre_jugador
+        
+        
+        self.bolsa.añadir_objeto("energetica",1)
+        self.bolsa.añadir_objeto("Digipyball",3)
+        print("empiezas con una energetica y 3 digiballs")
+        self.digipymon = self.generar_digipymon_aleatorio()
+        print("este es tu digipymon inicial ")
+        self.jugador1.añadir_digipymon(self.digipymon)
+        print(f"{self.jugador1.nombre} ha añadido a {self.digipymon.nombre} a su ejercito")
+        print(self.digipymon)
     def main(self):
         
         

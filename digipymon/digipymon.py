@@ -1,6 +1,6 @@
 class Digipymon():
     def __init__(self,nombre,vida,ataque,tipo,nivel):
-        pass 
+        
         self.nombre = nombre
         self.vida = vida
         self.ataque = ataque
