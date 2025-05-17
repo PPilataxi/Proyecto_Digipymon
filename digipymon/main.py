@@ -13,15 +13,20 @@ class Main:
         self.doyi = None
         
     def historia(self):
-        
+        print("Un dia  decidiste conquistar el mundo de los digipymon para ello,  ")
+        print("te embarcaste en una gran aventura  ")
         nombre_jugador = input("Dinos tu nombre ")
         self.jugador1.nombre = nombre_jugador
         
-        print("Un dia  decidiste conquistar el mundo de los digipymon para ello,  ")
-        print("te embarcaste en una gran aventura  ")
+        
         self.bolsa.añadir_objeto("energetica",1)
         self.bolsa.añadir_objeto("Digipyball",3)
         print("empiezas con una energetica y 3 digiballs")
+        self.generar_digipymon_aleatorio()
+        print("este es tu digipymon inicial ")
+
+        print(" nombre: " + self.doyi.nombre , " vida: " + str(self.doyi.vida) , " ataque: "+ str(self.doyi.ataque) , " tipo: "+ self.doyi.tipo , " nivel: "+ str(self.doyi.nivel))
+        
 
     def menu(self):
         
@@ -295,9 +300,7 @@ class Main:
         self.historia()
         
       
-    #print(self.jugador1)
-        print("este es tu digipymon inicial ")
-    #print(" nombre: " + self.doyi.nombre , " vida: " + str(self.doyi.vida) , " ataque: "+ str(self.doyi.ataque) , " tipo: "+ self.doyi.tipo , " nivel: "+ str(self.doyi.nivel))
+    
         salir =True
         while salir:   
             opcion = self.menu()
