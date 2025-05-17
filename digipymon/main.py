@@ -24,7 +24,7 @@ class Main:
         print("empiezas con una energetica y 3 digiballs")
 
     def menu(self):
-        self.historia()
+        
         print("*****¿Qué desea hacer?*****")
         print("1. Buscar digipymon")
         print("2. Luchar contra un entrenador")
@@ -292,7 +292,7 @@ class Main:
     def main(self):
         
         
-        
+        self.historia()
         
       
     #print(self.jugador1)
