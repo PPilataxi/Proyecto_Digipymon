@@ -236,6 +236,16 @@ class Main:
             
                 print("Quieres usar  energetica")
                 print("¿En que digipymon deseas usarlo?")
+                i=1
+                print(f"{i}. {self.digipymon.nombre} vida : {self.digipymon.vida}  ataque : {self.digipymon.ataque} tipo : {self.digipymon.tipo} nivel : {self.digipymon.nivel} ")
+                i +=1
+                if self.el_rebelde:   
+                    for digipymon in self.jugador1.lista_digipymon:
+                        print(f"{i}. {self.el_rebelde.nombre} vida : {self.el_rebelde.vida}  ataque : {self.el_rebelde.ataque} tipo : {self.el_rebelde.tipo} nivel : {self.el_rebelde.nivel} ")
+                        i += 1
+                 
+
+                        
                 num1 = int(input("Pulsa 1 para usarlo en self.digipymon " \
                                 "2 para usarlo en yaya " ))
                 
@@ -279,8 +289,7 @@ class Main:
         while exit_guarderia: 
             self.jugador1.consultar_digipymon()
 
-            #self.jugador1.consultar_digipymon(self.el_rebelde)
-            #print("digipymon1: " + self.digipymon.nombre ,"digipymon1: " + self.el_rebelde.nombre )
+           
             exit_guarderia = False
         
     def historia(self):
