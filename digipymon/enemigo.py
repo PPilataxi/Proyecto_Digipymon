@@ -1,5 +1,3 @@
-from digipymon import Digipymon;
-
 class Enemigo():
     def __init__( self,nombre):
         self.nombre = nombre
