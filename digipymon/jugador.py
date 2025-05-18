@@ -1,4 +1,4 @@
-from digipymon import Digipymon;
+
 """
 Esta clase  tiene los atributos del jugador:
   nombre,lista digipymon como un diccionario vacio ,cantidad digipymon inicializado a 0, las monedas del juego digicoins inicializado a 0
@@ -14,7 +14,6 @@ class Jugador():
  
   """
   Este metodo sirve para añadir  un digipymon a la lista de digipymons 
-  para ello se importa la clase Digipymon 
   Se añade a la lista con un append y la variable digipymon 
   y se suma 1 en la cantidad de digipymon 
   """
@@ -25,7 +24,7 @@ class Jugador():
 
   """
   Este metodo sirve para consultar los digipymons  que tiene el jugador  
-  para ello comprueba si eldigipymon esta en la lista de digipymons 
+  para ello comprueba si el digipymon esta en la lista de digipymons 
   Si esta , los imprime 
   y sino esta devuelve un print de que no esta en la lista  
   """
