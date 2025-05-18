@@ -99,6 +99,11 @@ class Main:
                 print("O no sabes leer, o no sabes escribir, ponga si o no por favor.")
 
 
+    """
+    Función combate el cual comprueba si disponemos de digipymons, luego pregunta si queremos combatir
+    y hace que tengamos un combate contra una persona con la misma cantidad de digipymons, y tendremos un combate
+    en el cual se comparan los puntos de ataque y se resta la vida.
+    """
     def combate(self):
         if not self.jugador1.lista_digipymon:
             print("No dispones de ejercito para luchar por la República")
@@ -340,6 +345,11 @@ class Main:
                             
                         print("No tienes ese objeto")
 
+
+    """
+    Función consultar el inventario actual de nuestro jugador donde hay un bucle while que mantiene al jugador dentro
+    del inventario hasta que finalice los objetos que tiene el jugador.
+    """
     def Consultar_inventario(self):
         exit =True
         while exit: 
@@ -347,14 +357,21 @@ class Main:
             print(self.jugador1.consultar_digicoins())
             exit = False
 
+    """
+    Función consultar digipymons, un while que cuando termine de consultar los digipymons
+    que están en la lista del jugador(osea el objeto), salga del consultar.
+    """
     def Consultar_digipymons(self):
         exit_guarderia = True
         while exit_guarderia: 
             self.jugador1.consultar_digipymon()
 
-           
             exit_guarderia = False
-        
+
+    """
+    Función historia, se ha creado esta función para opcimicación del código en el main y que 
+    se pueda ver claramente el main
+    """
     def historia(self):
         print("Un dia  decidiste conquistar el mundo de los digipymon para ello,  ")
         print("te embarcaste en una gran aventura  ")
@@ -370,12 +387,17 @@ class Main:
         self.jugador1.añadir_digipymon(self.digipymon)
         print(f"{self.jugador1.nombre} ha añadido a {self.digipymon.nombre} a su ejercito")
         print(self.digipymon)
+
+    """
+    Función main en la cual llamamon a la historia y hacemos que el menu pueda
+    ser interactuado y elegir la opción que sea conveniente para el juego y lo que queramos hacer
+    """
     def main(self):
         
         
         self.historia()
         
-      
+
     
         salir =True
         while salir:   
@@ -397,7 +419,7 @@ class Main:
                 salir = False
                 
 
-      
+
 if __name__==    "__main__":
     videojuego = Main()
     videojuego.main()
