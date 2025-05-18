@@ -160,7 +160,7 @@ def combate(self, jugador, lista_nombres):
 
         elif pelea == "no":
             if self.jugador1.digicoins > 0:
-                self.jugador1.digicoins -=
+                self.jugador1.digicoins -= 1
                 print("Aqui somos como el estado español, hagas lo que hagas te quitamos 1 Digicoin")
             else:
                 print("No dispones de digicoins, asi que lo pagarás con la batalla")
