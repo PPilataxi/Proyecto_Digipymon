@@ -18,9 +18,9 @@ class ListaNombres():
 
 
         def obtener_nombre_digipymon(self):
-                numeroaleatorio = self.lista_nombres_digipymons[random.randint(0, 20)] 
-                return numeroaleatorio
+                numero_aleatorio = self.lista_nombres_digipymons[random.randint(0, 20)] 
+                return numero_aleatorio
 
         def obtener_nombre_entrenador(self):
-                entrenadoraleatorio = self.lista_nombres_entrenadores[random.randint(0, 20)] 
-                return entrenadoraleatorio
+                entrenador_aleatorio = self.lista_nombres_entrenadores[random.randint(0, 20)] 
+                return entrenador_aleatorio
