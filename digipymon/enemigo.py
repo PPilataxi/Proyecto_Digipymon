@@ -1,4 +1,4 @@
-from digipymon import  Digipymon;
+
 """
 Esta clase  tiene los atributos del jugador:
   nombre,lista digipymon como un diccionario vacio ,cantidad digipymon inicializado a 0
@@ -12,7 +12,6 @@ class Enemigo():
 
     """
     Este metodo sirve para añadir  un digipymon a la lista de digipymons 
-    para ello se importa la clase Digipymon 
     Se añade a la lista con un append y la variable digipymon 
     y se suma 1 en la cantidad de digipymon 
     """
