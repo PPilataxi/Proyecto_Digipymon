@@ -11,7 +11,7 @@ class Main:
         self.bolsa = Inventario()
         self.nombre_digipymon = ListaNombres()
         self.digipymon = None
-        self.el_rebelde = None
+        self.id_contador = 1
 
 
     def menu(self):
@@ -33,13 +33,14 @@ class Main:
             
             nombre = self.nombre_digipymon.obtener_nombre_digipymon()
             lista_tipo = ["fuego","agua","planta"]    
-
+            
             vida = random.randint(10, 20)
             ataque = random.randint(1, 10)
             nivel = random.randint(1, 3)
             tipo = random.choice(lista_tipo)
-
-            return Digipymon(nombre,vida,ataque,tipo,nivel)
+            digipymon=Digipymon( self.id_contador,nombre,vida,ataque,tipo,nivel)
+            self.id_contador += 1
+            return digipymon 
 
             #self.digipymon = Digipymon(self.nombre,self.vida,self.ataque,self.tipo,self.nivel)
             #self.añadir_digipymon(self.digipymon)
@@ -51,14 +52,16 @@ class Main:
 
     def buscar_digipymon(self):
         
-        self.el_rebelde =self.generar_digipymon_aleatorio()
+        self.digipymon =self.generar_digipymon_aleatorio()
+        
     #Introducción a la función
         print("******Es la hora de buscar digipymons******")
-        if self.el_rebelde:
-            print(f"¡OMFG, {self.el_rebelde} apareció para torturarte!")
-
+        
+        print(f"¡OMFG, {self.digipymon} apareció para torturarte!")
+            
+         
     #Probabilidad de capturar el digipyball
-        captura_porcentaje= max(0, 100 - (self.el_rebelde.nivel * 10))
+        captura_porcentaje= max(0, 100 - (self.digipymon.nivel * 10))
         print(f"Tienes un {captura_porcentaje}% de posibilidades de llevarte este digipymon")
 
     #Decisión de captura
@@ -71,11 +74,12 @@ class Main:
                         self.bolsa.usar_objeto("Digipyball") 
                         print(self.bolsa.objetos )
                         if random.randint(1,100) <= captura_porcentaje:
-                            print(f"Lograste capturar a este digipymon {self.el_rebelde.nombre}, Felicidades, era muy dificil")
-                            self.jugador1.añadir_digipymon(self.el_rebelde)
+                            print(f"Lograste capturar a este digipymon {self.digipymon.nombre}, Felicidades, era muy dificil")
+                            self.jugador1.añadir_digipymon(self.digipymon)
+
                             break
                         else:
-                            print(f"¡¿Como se te puede haber escapado {self.el_rebelde.nombre}?! Afina la punteria Broh...")
+                            print(f"¡¿Como se te puede haber escapado {self.digipymon.nombre}?! Afina la punteria Broh...")
                             break
                     else:
                         print("Tienes todo tu ejercito completo")
@@ -223,60 +227,42 @@ class Main:
 
     def usar_item(self):
             
-
             
-            print(self.bolsa.objetos )
-            print("Que item deseas usar ?")
-            num2 = int(input("Pulsa 1 para usar energetica " \
-                            "2 para usar trembolona  "\
-                            "3 para intentar darle una  digiball al digipymon  " ))
+            salir_items = True
+            while salir_items:
+                
             
-            
-            if num2 == 1:
-            
-                print("Quieres usar  energetica")
-                print("¿En que digipymon deseas usarlo?")
-                i=1
-                print(f"{i}. {self.digipymon.nombre} vida : {self.digipymon.vida}  ataque : {self.digipymon.ataque} tipo : {self.digipymon.tipo} nivel : {self.digipymon.nivel} ")
-                i +=1
-                if self.el_rebelde:   
-                    for digipymon in self.jugador1.lista_digipymon:
-                        print(f"{i}. {self.el_rebelde.nombre} vida : {self.el_rebelde.vida}  ataque : {self.el_rebelde.ataque} tipo : {self.el_rebelde.tipo} nivel : {self.el_rebelde.nivel} ")
-                        i += 1
-                 
-
+                print(f"Que item quieres usar?\n {self.bolsa.objetos} \n 1. Digipyball\n 2. energica\n 3. Anabolizantes\n 4. Salir")
+                respuesta_items = int(input("Escribe el número  "))
+                if respuesta_items == 1 :
                         
-                num1 = int(input("Pulsa 1 para usarlo en self.digipymon " \
-                                "2 para usarlo en yaya " ))
-                
-                
-                if num1 == 1:
-                    print("Quieres usarlo en  " + self.digipymon.nombre) 
-                    energetica = self.digipymon.vida + 10   
-                    self.digipymon.vida = energetica
-                    print( "la vida de self.digipymon ahora es : " + str(self.digipymon.vida)  )
-                    self.bolsa.usar_objeto("energetica")
-                    print(self.bolsa.objetos)
-                    self.menu()
-            elif num2 == 2:
-
-                print("Quieres usar  trembolona")
-                print("¿En que digipymon deseas usarlo?")
-                num1 = int(input("Pulsa 1 para usarlo en "+ self.digipymon.nombre ,
-                            "2 para usarlo en " + self.el_rebelde.nombre ))
-                if num1 == 1:
-                    print("Quieres usarlo en  self.digipymon") 
-                    tembolona = self.digipymon.ataque + 5   
-                    self.digipymon.ataque =tembolona
-                    print(  " el ataque de self.digipymon ahora "+ str(self.digipymon.ataque) )    
-                    self.bolsa.usar_objeto("trembolona")
-                    print(self.bolsa.objetos)
-                    self.menu()
-            elif num2 == 3:
-
-                print("Quieres  intentar darle una  digiball al digipymon  ")
-                print("el digipymon se queda mirando la digiball  , tras 5 minutos la cojes para que pueda centrarse en el combate ")
-                
+                    print("Quieres  intentar darle una  digiball al digipymon  ")
+                    print("el digipymon se queda mirando la digiball  , tras 5 minutos la cojes para que pueda centrarse en el combate ")
+                elif respuesta_items == 4 :
+                    salir_items = False
+                elif respuesta_items == 2 :
+                    if "energetica"in self.bolsa.objetos:
+                            
+                            respuesta_digi = int(input(f"Sobre que digipymon quieres usar la energica {self.jugador1.consultar_digipymon()}?\n (escribe el Id o 'salir') "))
+                            for digipymon in self.jugador1.lista_digipymon:
+                                try:
+                                    if  self.digipymon.id == respuesta_digi:                        
+                                        self.digipymon.vida += 10
+                                        print(f"Le das la energetica a {self.digipymon.nombre} ") 
+                                                
+                                        print("Glup!!")
+                                                
+                                        print(f"{self.digipymon.nombre} ahora tiene {self.digipymon.vida} puntos de vida.")
+                                        input("Pulsa Enter para continuar...")
+                                        self.bolsa.usar_objeto("energetica") 
+                                        break
+                                    elif respuesta_digi == "salir":
+                                        salir_items = False
+                                except ValueError:
+                                    print("Opción no valida.\nIngresa el Id del Digipymon.")                               
+                    else:
+                            
+                        print("No tienes ese objeto")
 
     def Consultar_inventario(self):
         exit =True
