@@ -26,7 +26,11 @@ class Main:
         print("7. Salir")
         
         eleccion =int(input())
-        return eleccion       
+        if 1 <= eleccion <= 7:
+            return eleccion
+        else:
+            print("ERROR, no existe esa opción. Ingrese una opción correcta")
+        return self.menu()     
         
     def generar_digipymon_aleatorio(self):
             
