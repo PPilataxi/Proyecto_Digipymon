@@ -1,4 +1,4 @@
-from digipymon import digipymon
+from digipymon import Digipymon
 from enemigo import Enemigo
 from inventario import Inventario
 from jugador import Jugador
@@ -86,32 +86,56 @@ def combate(self, jugador, lista_nombres):
     rival = Enemigo(nombre_rival)
     print(f"OMG, apareció {rival.nombre} y se quiere hacer un 1pa1 contra tí.")
 
-    for x in range(jugador.cantidad_digipymon):
+    for _ in range(jugador.cantidad_digipymon):
         rival.añadir_digipymon(self.generar_digipymon_aleatorio(lista_nombres))
 
     print(f"{rival.nombre} tiene reclutado a los siguientes Digipymons")
-    for i, digipymon in enumerate(rival.lista_digipymon):
+    for i, soldado_enemigo in enumerate(rival.lista_digipymon):
         print(f"{i + 1 }. {digipymon.nombre} (Vida: {digipymon.vida}, Ataque: {digipymon.ataque})")
 
     while True:
         pelea = input("¿Desea enfrentarse en el 1 vs 1 ? (si/no)").lower()
         if pelea == "si":
-            victoria =0
-            derrota = 0
-            empate = 0
-
             print("*-*-*-*-* HORA DEL COMBATE *-*-*-*-*")
-            for i in range(min(len(jugador.lista_digipymon, ), len(rival.lista_digipymon))):
-                mi_soldado = jugador.lista_digipymon[i]
-                soldado_rival = rival.lista_digipymon[i]
-                print(f" ----- COMBATE -----")
-                print(f"Va combatir {mi_soldado.nombre} (Vida: {mi_soldado.vida}, Ataque: {mi_soldado.ataque}) ***** VS ***** {soldado_rival.nombre} (Vida: {soldado_rival.vida} Ataque: {soldado_rival.ataque})")
+            i = 0
+            j = 0
+            while i < len(self.jugador1.lista_digipymon) and j < len(rival.lista_digipymon):
+                mi_soldado = self.jugador1.lista_digipymon[i]
+                soldado_enemigo = rival.lista_digipymon[j]
+                print(f"\n--- Combate {i+1} vs {j+1} ---")
+                print(f"Tu {mi_soldado.nombre} (Ataque: {soldado_enemigo.ataque}, Vida: {mi_soldado.vida}) vs. {soldado_enemigo.nombre} (Ataque: {soldado_enemigo.ataque}, Vida: {soldado_enemigo.vida})")
 
-                if mi_soldado.vida <= 0:
-                    print(f"OHHH {mi_soldado.nombre} se ha quedado sin vida! LO FUSILARON! (Vida:{mi_soldado.vida})")
-                    derrota +=1
-                    continue
+                if mi_soldado.ataque > soldado_enemigo:
+                    diferencia_ataque = mi_soldado.ataque - soldado_enemigo.ataque
+                    mi_soldado.vida -= diferencia_ataque
+                    print(f"¨{mi_soldado.nombre} va a atacar! {mi_soldado.nombre} ha perdido {diferencia_ataque} de vida. Se ha quedado la siguiente vida: {mi_soldado.vida}")
+                    if mi_soldado.vida <= 0:
+                        print(f"Ooooh Nooo! {mi_soldado.nombre} ha sido derrotado!")
+                        i +=1
+                    else:
+                        print(f"Tu {mi_soldado.nombre} podrá seguir luchando.")
+                        j += 1 
 
+                elif mi_soldado.ataque < soldado_enemigo.ataque:
+                    diferencia_ataque = soldado_enemigo.ataque - mi_soldado.ataque
+                    soldado_enemigo.vida -= diferencia_ataque
+                    print(f"¡{soldado_enemigo.nombre} va a atacar! {soldado_enemigo.nombre} ha perdido {diferencia_ataque} de vida. (Nueva vida: {soldado_enemigo.vida})")
+                    if soldado_enemigo.vida <= 0:
+                        print(f"¡{soldado_enemigo.nombre} ha sido derrotado!")
+                        j += 1
+                    else:
+                        print(f"{soldado_enemigo.nombre} puede seguir luchando")
+
+                else:
+                    print("Empate técnico. Ambos digipymons perderán 1 punto de vida")
+                    mi_soldado.vida -= 1
+                    soldado_enemigo -= 1
+                    if mi_soldado.vida <= 0:
+                        print(f"Ooooh Nooo! {mi_soldado.nombre} ha sido derrotado!")
+                        i +=1
+                    if soldado_enemigo.vida <= 0:
+                        print(f"¡{soldado_enemigo.nombre} ha sido derrotado!")
+                        j += 1
 
 
 
@@ -137,11 +161,11 @@ def digishop(self ):
                 self.bolsa.añadir_objeto("Digipyball",1)
                 print(self.bolsa.objetos)
                 
-                compra1 =self.jugador1.digicoins - 5
+                compra1 = self.jugador1.digicoins - 5
                 self.jugador1.digicoins = compra1
                 self.jugador1.consultar_digicoins()
                 print("se ha añadido al inventario")
-                print("que quieres hacer ahora ")
+                print("¿Que quieres hacer ahora ?")
                 tienda = int(int(input("pulsa 1 para seguir comprando o pulsa 2 para salir de la tienda ") ) )
                 if tienda == 2 :
                     print("estas saliendo de la tienda ")
