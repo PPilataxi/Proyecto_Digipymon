@@ -108,6 +108,10 @@ def combate(self, jugador, lista_nombres):
                 print(f" ----- COMBATE -----")
                 print(f"Va combatir {mi_soldado.nombre} (Vida: {mi_soldado.vida}, Ataque: {mi_soldado.ataque}) ***** VS ***** {soldado_rival.nombre} (Vida: {soldado_rival.vida} Ataque: {soldado_rival.ataque})")
 
+                if mi_soldado.vida <= 0:
+                    print(f"OHHH {mi_soldado.nombre} se ha quedado sin vida! LO FUSILARON! (Vida:{mi_soldado.vida})")
+                    derrota +=1
+
 
 
 
