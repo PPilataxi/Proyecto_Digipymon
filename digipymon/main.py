@@ -236,7 +236,7 @@ class Main:
             while salir_items:
                 
             
-                print(f"Que item quieres usar?\n {self.bolsa.objetos} \n 1. Digipyball\n 2. energica\n 3. Anabolizantes\n 4. Salir")
+                print(f"Que item quieres usar?\n {self.bolsa.objetos} \n 1. Digipyball\n 2. energica\n 3. Trembolona\n 4. Salir")
                 respuesta_items = int(input("Escribe el número  "))
                 if respuesta_items == 1 :
                         
@@ -254,7 +254,7 @@ class Main:
                                         self.digipymon.vida += 10
                                         print(f"Le das la energetica a {self.digipymon.nombre} ") 
                                                 
-                                        print("Glup!!")
+                                        print(f"{self.digipymon.nombre} gana 10 de salud ")
                                                 
                                         print(f"{self.digipymon.nombre} ahora tiene {self.digipymon.vida} puntos de vida.")
                                         input("Pulsa Enter para continuar...")
@@ -263,8 +263,28 @@ class Main:
                                     elif respuesta_digi == "salir":
                                         salir_items = False
                                 except ValueError:
-                                    print("Opción no valida.\nIngresa el Id del Digipymon.")                               
-                    else:
+                                    print("Opción no valida.\nIngresa el Id del Digipymon.")   
+                elif respuesta_items == 3 :
+                    if "Trembolona"in self.bolsa.objetos:
+                            
+                            respuesta_digi = int(input(f"Sobre que digipymon quieres usar la Trembolona {self.jugador1.consultar_digipymon()}?\n (escribe el Id o 'salir') "))
+                            for digipymon in self.jugador1.lista_digipymon:
+                                try:
+                                    if  self.digipymon.id == respuesta_digi:                        
+                                        self.digipymon.vida += 10
+                                        print(f"Le das la Trembolona a {self.digipymon.nombre} ") 
+                                                
+                                        print(f"{self.digipymon.nombre} gana 5 de ataque ")
+                                                
+                                        print(f"{self.digipymon.nombre} ahora tiene {self.digipymon.vida} puntos de ataque.")
+                                        input("Pulsa Enter para continuar...")
+                                        self.bolsa.usar_objeto("Trembolona") 
+                                        break
+                                    elif respuesta_digi == "salir":
+                                        salir_items = False
+                                except ValueError:
+                                    print("Opción no valida.\nIngresa el Id del Digipymon.")                                               
+                else:
                             
                         print("No tienes ese objeto")
 
