@@ -1,9 +1,11 @@
-from digipymon import Digipymon
+
 from enemigo import Enemigo
+from digipymon import Digipymon
 from inventario import Inventario
 from jugador import Jugador
 from listanombres import ListaNombres
 import random
+
 def __init__(self):
     self.jugador1 = Jugador(None)
     self.bolsa = Inventario()
@@ -12,21 +14,22 @@ def __init__(self):
     self.id_contador = 1
 
 
-def generar_digipymon_aleatorio(self, lista_nombres):
-        lista_digipymon = ListaNombres() 
+def generar_digipymon_aleatorio(self):
         
-        nombre = lista_digipymon.obtener_nombre_digipymon()
-        vida = random.randint(10, 20)
-        ataque = random.randint(1, 10)
-        nivel = random.randint(1, 3)
-        lista_tipo = ["fuego","agua","planta"] 
-        tipo = random.choice(lista_tipo)
-        doyi = (nombre,vida,ataque,tipo,nivel)
-        return doyi     
+    nombre = self.nombre_digipymon.obtener_nombre_digipymon()
+    lista_tipo = ["fuego","agua","planta"]    
+            
+    vida = random.randint(10, 20)
+    ataque = random.randint(1, 10)
+    nivel = random.randint(1, 3)
+    tipo = random.choice(lista_tipo)
+    digipymon=Digipymon( self.id_contador,nombre,vida,ataque,tipo,nivel)
+    self.id_contador += 1
+    return digipymon 
 
 
 
-def menu():
+def menu(self):
     print("*****¿Qué desea hacer?*****")
     print("1. Buscar digipymon")
     print("2. Luchar contra un entrenador")
@@ -35,9 +38,13 @@ def menu():
     print("5. Consultar inventario")
     print("6. Consultar digipymons")
     print("7. Salir")
-        
+    
     eleccion =int(input())
-    return eleccion       
+    if 1 <= eleccion <= 7:
+        return eleccion
+    else:
+        print("ERROR, no existe esa opción. Ingrese una opción correcta")
+    return self.menu()
 
 
 def buscar_digipymon(self, jugador, inventario, lista_nombres):
@@ -136,6 +143,30 @@ def combate(self, jugador, lista_nombres):
                     if soldado_enemigo.vida <= 0:
                         print(f"¡{soldado_enemigo.nombre} ha sido derrotado!")
                         j += 1
+                    else:
+                        i += 1
+                        j += 1
+
+            print("*-*-*-*-* RESULTADOS DEL COMBATE *-*-*-*-*")
+            if i == len(self.jugador1.lista_digipymon) and j < len(rival.lista_digipymon):
+                    print("¡Has perdido la Guerra!")
+                    self.jugador1.digicoins = max(0, self.jugador1.digicoins - len(rival.lista_digipymon))
+            elif j == len(rival.lista_digipymon) and i < len(self.jugador1.lista_digipymon):
+                print("¡Genial, lograste la Victoria!")
+                self.jugador1.digicoins += len(self.jugador1.lista_digipymon)
+            else:
+                print("Como se diria el empate en ajedrez. TABLAS.")
+            break
+
+        elif pelea == "no":
+            if self.jugador1.digicoins > 0:
+                self.jugador1.digicoins -=
+                print("Aqui somos como el estado español, hagas lo que hagas te quitamos 1 Digicoin")
+            else:
+                print("No dispones de digicoins, asi que lo pagarás con la batalla")
+            break
+        else:
+            print("Por favor, escriba 'si' o 'no'")
 
 
 
@@ -223,7 +254,7 @@ def digishop(self ):
             salir_tienda = False 
 
 
-def usar_item(self, jugador, inventario):
+def usar_item(self):
     salir_items = True
     while salir_items:
         
@@ -271,10 +302,6 @@ def consultar_digipymons(self):
     while exit_guarderia:
         self.jugador1.consultar_digipymons
         exit_guarderia = False
-
-
-
-
 
 
 def historia(self):
