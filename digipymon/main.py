@@ -257,7 +257,6 @@ class Main:
                                         print(f"{self.digipymon.nombre} gana 10 de salud ")
                                                 
                                         print(f"{self.digipymon.nombre} ahora tiene {self.digipymon.vida} puntos de vida.")
-                                        input("Pulsa Enter para continuar...")
                                         self.bolsa.usar_objeto("energetica") 
                                         break
                                     elif respuesta_digi == "salir":
@@ -277,7 +276,6 @@ class Main:
                                         print(f"{self.digipymon.nombre} gana 5 de ataque ")
                                                 
                                         print(f"{self.digipymon.nombre} ahora tiene {self.digipymon.vida} puntos de ataque.")
-                                        input("Pulsa Enter para continuar...")
                                         self.bolsa.usar_objeto("Trembolona") 
                                         break
                                     elif respuesta_digi == "salir":
