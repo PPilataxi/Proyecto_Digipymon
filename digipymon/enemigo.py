@@ -1,26 +1,28 @@
 from digipymon import  Digipymon;
-
+"""
+Esta clase  tiene los atributos del jugador:
+  nombre,lista digipymon como un diccionario vacio ,cantidad digipymon inicializado a 0
+sirve para que el enemigo pueda enfrentarse con el jugador    
+"""
 class Enemigo():
     def __init__(self,nombre):
         self.nombre = nombre
         self.lista_digipymon = []
         self.cantidad_digipymon = 0
 
-    def añadir_digipymon(self,digipymon):
-
-        poyomon =  Digipymon("pollo",12,13,"fuego",2)  
-        self.lista_digipymon.append(poyomon) 
-        self.cantidad_digipymon += 1 
+    """
+    Este metodo sirve para añadir  un digipymon a la lista de digipymons 
+    para ello se importa la clase Digipymon 
+    Se añade a la lista con un append y la variable digipymon 
+    y se suma 1 en la cantidad de digipymon 
+    """
+    def añadir_digipymon(self, digipymon):
+        self.lista_digipymon.append(digipymon)
+        self.cantidad_digipymon += 1
        
       
 
-    def __str__(self):
-        mensaje= f"Nombre: {self.nombre}, lista_digipymon:{self.lista_digipymon},cantidad_digipymon:{self.cantidad_digipymon}"
-        return mensaje
-
+   
         
-enemego = Enemigo(nombre="pollo")
-
-
-enemego.__str__()
+                       
 

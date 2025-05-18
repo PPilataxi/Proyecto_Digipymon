@@ -1,8 +1,14 @@
+"""
+Esta clase es el inventario que almacena los objetos que puede usar el jugador y que pueden usar los digipymon 
+"""
 class Inventario():
     
     def __init__(self):
        self.objetos =  {}
-   
+    """
+    Este metodo comprueba si el objeto esta en eldiccionario objetos si no esta  añade el objeto al diccionario objetos 
+    y si esta  incremetna su cantidad  tiene como parametros el nombre del objeto y la cantidad del objeto 
+    """
     def añadir_objeto(self,nombre , cantidad ):
         
         if nombre in self.objetos:
@@ -17,7 +23,11 @@ class Inventario():
 
 
  
-
+    """
+    Este metodo sirve para que eljugador pueda darle objetos al digipymon 
+    para ello comprueba si el objeto existe el diccionario objetos ,si existe le resta 1 a la cantidad del objeto y si la cantidad llega a 0 lo elimina del inventario 
+    Si no tienes el objeto en tu inventario te avisa con un print de que no tienes ese objeto 
+    """
     def usar_objeto(self,objeto):
         
          if objeto in self.objetos:
