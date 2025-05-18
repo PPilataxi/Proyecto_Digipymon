@@ -111,26 +111,30 @@ def combate(self, jugador, lista_nombres):
                 if mi_soldado.vida <= 0:
                     print(f"OHHH {mi_soldado.nombre} se ha quedado sin vida! LO FUSILARON! (Vida:{mi_soldado.vida})")
                     derrota +=1
+                    continue
+
+                if mi_soldado.ataque > soldado_rival.ataque:
+                    print(f"")
 
 
 
 
 def digishop(jugador, inventario):
+
+    salir_tienda = True
+    while salir_tienda:
+
         print("*****Bienvenido a la digishop*****")
         print("*****¿Qué desea comprar?*****")
-        print("a. Digipyballs: 5 digicoins")
-        print("b. Energetica: 3 digicoins (+ 10p digisalud)")
-        print("c. Trembolóna: 4 digicoins (+5p de aura )")
+        print("a. Digipyballs: -----> 5 digicoins")
+        print("b. Energetica: -----> 3 digicoins (+ 10p digisalud)")
+        print("c. Trembolóna: -----> 4 digicoins (+5p de aura )")
         print("d. Volver al menú")
+        jugador.consultar_digicoins
         
-        while True:
-            opcion = int(input("Elija un objeto que desea comprar: ").lower())
-            #Condición if 
+        opcion = int(input("Elija un objeto que desea comprar: ").lower())
             if opcion == a:
-                if jugador.consultar_digicoins >= 5:
-                    inventario.añadir_objeto("Digipyball", 1)
-                    jugador.consultar_digicoins -=5
-                    print("Has apostado a las digipyballs")
+                if  
                 else:
                     print("Andas pobre, ponte a chambear")
             elif opcion == b:
@@ -168,47 +172,102 @@ def digishop(jugador, inventario):
 
 
 def usar_item(self, jugador, inventario):
-print(bolsa.objetos )
-        print("Que item deseas usar ?")
-        num2 = int(input("Pulsa 1 para usar energetica " \
-                         "2 para usar trembolona " ))
+    salir_items = True
+    while salir_items:
         
-        print("has pulsado   " + str(num2))   
-        if num2 == 1:
-         
-         print("Quieres usar  energetica")
-        print("¿En que digipymon deseas usarlo?")
-        num1 = int(input("Pulsa 1 para usarlo en yuyu " \
-                         "2 para usarlo en yaya " ))
+    
+        print(f"Que item quieres usar?\n {self.bolsa.objetos} \n 1. Digipyball\n 2. energica\n 3. Anabolizantes\n 4. Salir")
+        respuesta_items = int(input("Escribe el número  "))
+        if respuesta_items == 1 :
+                
+            print("Quieres  intentar darle una  digiball al digipymon  ")
+            print("el digipymon se queda mirando la digiball  , tras 5 minutos la cojes para que pueda centrarse en el combate ")
+        elif respuesta_items == 4 :
+            salir_items = False
+        elif respuesta_items == 2 :
+            if "energetica"in self.bolsa.objetos:
+                    
+                    respuesta_digi = int(input(f"Sobre que digipymon quieres usar la energica {self.jugador1.consultar_digipymon()}?\n (escribe el Id o 'salir') "))
+                    for digipymon in self.jugador1.lista_digipymon:
+                        try:
+                            if  self.digipymon.id == respuesta_digi:                        
+                                self.digipymon.vida += 10
+                                print(f"Le das la energetica a {self.digipymon.nombre} ") 
+                                        
+                                print("Glup!!")
+                                        
+                                print(f"{self.digipymon.nombre} ahora tiene {self.digipymon.vida} puntos de vida.")
+                                input("Pulsa Enter para continuar...")
+                                self.bolsa.usar_objeto("energetica") 
+                                break
+                            elif respuesta_digi == "salir":
+                                salir_items = False
+                        except ValueError:
+                            print("Opción no valida.\nIngresa el Id del Digipymon.")                               
+            else:
+                    
+                print("No tienes ese objeto")
+
+def consultar_inventario(self):
+    exit = True
+    while exit:
+        print(self.bolsa.objetos)
+        exit = False
+
+def consultar_digipymons(self):
+    exit_guarderia = True
+    while exit_guarderia:
+        self.jugador1.consultar_digipymons
+        exit_guarderia = False
+
+
+
+
+
+
+def historia(self):
+        print("Un dia  decidiste conquistar el mundo de los digipymon para ello,  ")
+        print("te embarcaste en una gran aventura  ")
+        nombre_jugador = input("Dinos tu nombre ")
+        self.jugador1.nombre = nombre_jugador
         
-         
-        if num1 == 1:
-            print("Quieres usarlo en  yuyu") 
-            energetica = yuyu.vida + 10   
-            yuyu.vida = energetica
-            print( "la vida de yuyu ahora es : " + str(yuyu.vida)  )
-            bolsa.usar_objeto("energetica")
-            print(bolsa.objetos)
-        elif num2 == 2:
+        
+        self.bolsa.añadir_objeto("energetica",1)
+        self.bolsa.añadir_objeto("Digipyball",3)
+        print("empiezas con una energetica y 3 digiballs")
+        self.digipymon = self.generar_digipymon_aleatorio()
+        print("este es tu digipymon inicial ")
+        self.jugador1.añadir_digipymon(self.digipymon)
+        print(f"{self.jugador1.nombre} ha añadido a {self.digipymon.nombre} a su ejercito")
+        print(self.digipymon)
 
-            print("Quieres usar  trembolona")
-            print("¿En que digipymon deseas usarlo?")
-        num1 = int(input("Pulsa 1 para usarlo en yuyu " \
-                        "2 para usarlo en yaya " ))
-        if num1 == 1:
-            print("Quieres usarlo en  yuyu") 
-            tembolona = yuyu.ataque + 5   
-            yuyu.ataque =tembolona
-            print(  " el ataque de yuyu ahora "+ str(yuyu.ataque) )    
-            bolsa.usar_objeto()
-            print(bolsa.objetos)
+def main(self):
+        
+        
+        self.historia()
+        
 
+    
+        salir =True
+        while salir:   
+            opcion = self.menu()
+            if opcion == 1:
+                self.buscar_digipymon()
+            if opcion == 2:
+                self.combate()   
+            if opcion == 3:
+                self.digishop()
+            elif opcion == 4: 
+                self.usar_item()
+            elif opcion == 5: 
+                self.Consultar_inventario() 
+            elif opcion == 6: 
+                self.Consultar_digipymons()
+            elif opcion == 7: 
+                print("saliendo del programa")
+                salir = False
+                
 
-
-
-
-pass
-
-
-def main():
-    pass
+if __name__==    "__main__":
+    videojuego = Main()
+    videojuego.main()
