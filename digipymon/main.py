@@ -5,7 +5,11 @@ from jugador import Jugador
 from listanombres import ListaNombres
 import random
 def __init__(self):
-    pass
+    self.jugador1 = Jugador(None)
+    self.bolsa = Inventario()
+    self.nombre_digipymon = ListaNombres()
+    self.digipymon = None
+    self.id_contador = 1
 
 
 def generar_digipymon_aleatorio(self, lista_nombres):
@@ -34,25 +38,6 @@ def menu():
         
     eleccion =int(input())
     return eleccion       
-
-
-    """
-    print("*****¿Qué desea hacer?*****")
-    print("1. Buscar digipymon")
-    print("2. Luchar contra un entrenador")
-    print("3. Ir a la tienda")
-    print("4. Usar Objetos")
-    print("5. Consultar inventario")
-    print("6. Consultar digipymon")
-    print("7. Buscar digipymon")
-
-    opcion = int(input("Elige una opción: "))
-    if 1 <= opcion <= 7:
-        return opcion
-    else:
-        print("ERROR, no existe esa opción. Ingrese una opción correcta")
-    return menu
-    """
 
 
 def buscar_digipymon(self, jugador, inventario, lista_nombres):
@@ -93,7 +78,39 @@ def buscar_digipymon(self, jugador, inventario, lista_nombres):
 
 
 def combate(self, jugador, lista_nombres):
+    if not jugador.lista_digipymon:
+        print("No dispones de ejercito para luchar por la República")
+        return
+    
+    nombre_rival = lista_nombres.obtener_nombre_entrenadores()
+    rival = Enemigo(nombre_rival)
+    print(f"OMG, apareció {rival.nombre} y se quiere hacer un 1pa1 contra tí.")
 
+    for x in range(jugador.cantidad_digipymon):
+        rival.añadir_digipymon(self.generar_digipymon_aleatorio(lista_nombres))
+
+    print(f"{rival.nombre} tiene reclutado a los siguientes Digipymons")
+    for i, digipymon in enumerate(rival.lista_digipymon):
+        print(f"{i + 1 }. {digipymon.nombre} (Vida: {digipymon.vida}, Ataque: {digipymon.ataque})")
+
+    while True:
+        pelea = input("¿Desea enfrentarse en el 1 vs 1 ? (si/no)").lower()
+        if pelea == "si":
+            victoria =0
+            derrota = 0
+            empate = 0
+
+            print("*-*-*-*-* HORA DEL COMBATE *-*-*-*-*")
+            for i in range(min(len(jugador.lista_digipymon, ), len(rival.lista_digipymon))):
+                mi_soldado = jugador.lista_digipymon[i]
+                soldado_rival = rival.lista_digipymon[i]
+                print(f" ----- COMBATE -----")
+                print(f"Va combatir {mi_soldado.nombre} (Vida: {mi_soldado.vida}, Ataque: {mi_soldado.ataque}) ***** VS ***** {soldado_rival.nombre} (Vida: {soldado_rival.vida} Ataque: {soldado_rival.ataque})")
+
+                if mi_soldado.vida <= 0:
+                    print(f"OHHH {mi_soldado.nombre} se ha quedado sin vida! LO FUSILARON! (Vida:{mi_soldado.vida})")
+                    derrota +=1
+                    continue
 
 
 
