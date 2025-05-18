@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module main</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">main</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Calexis%5Cdesktop%5Cproyecto%20salmon%5Cproyecto_digipymon%5Cproyecto_digipymon%5Cmain.py">c:\users\alexis\desktop\proyecto salmon\proyecto_digipymon\proyecto_digipymon\main.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="random.html">random</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="main.html#Main">Main</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Main">class <strong>Main</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Esta&nbsp;es&nbsp;clase&nbsp;main&nbsp;no&nbsp;hace&nbsp;falta&nbsp;ponerla&nbsp;pero&nbsp;simplifica&nbsp;el&nbsp;uso&nbsp;de&nbsp;variables&nbsp;debajo&nbsp;se&nbsp;ponen&nbsp;como&nbsp;atributos&nbsp;los&nbsp;objetos&nbsp;que&nbsp;se&nbsp;van&nbsp;a&nbsp;usar&nbsp;<br>
+&nbsp;<br>
+tienen&nbsp;None&nbsp;por&nbsp;que&nbsp;se&nbsp;definen&nbsp;mas&nbsp;adelante&nbsp;en&nbsp;el&nbsp;codigo<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Main-Consultar_digipymons"><strong>Consultar_digipymons</strong></a>(self)</dt><dd><span class="code">Función&nbsp;consultar&nbsp;digipymons,&nbsp;un&nbsp;while&nbsp;que&nbsp;cuando&nbsp;termine&nbsp;de&nbsp;consultar&nbsp;los&nbsp;digipymons<br>
+que&nbsp;están&nbsp;en&nbsp;la&nbsp;lista&nbsp;del&nbsp;jugador(osea&nbsp;el&nbsp;objeto),&nbsp;salga&nbsp;del&nbsp;consultar.</span></dd></dl>
+
+<dl><dt><a name="Main-Consultar_inventario"><strong>Consultar_inventario</strong></a>(self)</dt><dd><span class="code">Función&nbsp;consultar&nbsp;el&nbsp;inventario&nbsp;actual&nbsp;de&nbsp;nuestro&nbsp;jugador&nbsp;donde&nbsp;hay&nbsp;un&nbsp;bucle&nbsp;while&nbsp;que&nbsp;mantiene&nbsp;al&nbsp;jugador&nbsp;dentro<br>
+del&nbsp;inventario&nbsp;hasta&nbsp;que&nbsp;finalice&nbsp;los&nbsp;objetos&nbsp;que&nbsp;tiene&nbsp;el&nbsp;jugador.</span></dd></dl>
+
+<dl><dt><a name="Main-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="Main-buscar_digipymon"><strong>buscar_digipymon</strong></a>(self)</dt><dd><span class="code">Esta&nbsp;funcion&nbsp;genera&nbsp;un&nbsp;digipymon&nbsp;aleatorio&nbsp;<br>
+y&nbsp;nos&nbsp;permite&nbsp;capturarlo&nbsp;con&nbsp;un&nbsp;&nbsp;porcentaje&nbsp;segun&nbsp;el&nbsp;nivel</span></dd></dl>
+
+<dl><dt><a name="Main-combate"><strong>combate</strong></a>(self)</dt><dd><span class="code">Función&nbsp;combate&nbsp;el&nbsp;cual&nbsp;comprueba&nbsp;si&nbsp;disponemos&nbsp;de&nbsp;digipymons,&nbsp;luego&nbsp;pregunta&nbsp;si&nbsp;queremos&nbsp;combatir<br>
+y&nbsp;hace&nbsp;que&nbsp;tengamos&nbsp;un&nbsp;combate&nbsp;contra&nbsp;una&nbsp;persona&nbsp;con&nbsp;la&nbsp;misma&nbsp;cantidad&nbsp;de&nbsp;digipymons,&nbsp;y&nbsp;tendremos&nbsp;un&nbsp;combate<br>
+en&nbsp;el&nbsp;cual&nbsp;se&nbsp;comparan&nbsp;los&nbsp;puntos&nbsp;de&nbsp;ataque&nbsp;y&nbsp;se&nbsp;resta&nbsp;la&nbsp;vida.</span></dd></dl>
+
+<dl><dt><a name="Main-digishop"><strong>digishop</strong></a>(self)</dt><dd><span class="code">Esta&nbsp;funcion&nbsp;depliega&nbsp;un&nbsp;menu&nbsp;que&nbsp;nos&nbsp;permite&nbsp;comprar&nbsp;objetos&nbsp;<br>
+y&nbsp;los&nbsp;añade&nbsp;al&nbsp;inventario&nbsp;restando&nbsp;su&nbsp;precio</span></dd></dl>
+
+<dl><dt><a name="Main-generar_digipymon_aleatorio"><strong>generar_digipymon_aleatorio</strong></a>(self)</dt><dd><span class="code">Esta&nbsp;funcion&nbsp;genera&nbsp;un&nbsp;digipymon&nbsp;aleatorio&nbsp;añadiendole&nbsp;un&nbsp;nombre&nbsp;aleatorio<br>
+y&nbsp;tambien&nbsp;se&nbsp;le&nbsp;añade&nbsp;id_contador&nbsp;para&nbsp;que&nbsp;se&nbsp;vaya&nbsp;sumando&nbsp;1&nbsp;cada&nbsp;vez&nbsp;que&nbsp;se&nbsp;llame&nbsp;a&nbsp;la&nbsp;funcion</span></dd></dl>
+
+<dl><dt><a name="Main-historia"><strong>historia</strong></a>(self)</dt><dd><span class="code">Función&nbsp;historia,&nbsp;se&nbsp;ha&nbsp;creado&nbsp;esta&nbsp;función&nbsp;para&nbsp;opcimicación&nbsp;del&nbsp;código&nbsp;en&nbsp;el&nbsp;main&nbsp;y&nbsp;que&nbsp;<br>
+se&nbsp;pueda&nbsp;ver&nbsp;claramente&nbsp;el&nbsp;main</span></dd></dl>
+
+<dl><dt><a name="Main-main"><strong>main</strong></a>(self)</dt><dd><span class="code">Función&nbsp;main&nbsp;en&nbsp;la&nbsp;cual&nbsp;llamamon&nbsp;a&nbsp;la&nbsp;historia&nbsp;y&nbsp;hacemos&nbsp;que&nbsp;el&nbsp;menu&nbsp;pueda<br>
+ser&nbsp;interactuado&nbsp;y&nbsp;elegir&nbsp;la&nbsp;opción&nbsp;que&nbsp;sea&nbsp;conveniente&nbsp;para&nbsp;el&nbsp;juego&nbsp;y&nbsp;lo&nbsp;que&nbsp;queramos&nbsp;hacer</span></dd></dl>
+
+<dl><dt><a name="Main-menu"><strong>menu</strong></a>(self)</dt><dd><span class="code">Esta&nbsp;funcion&nbsp;es&nbsp;menu&nbsp;principal&nbsp;del&nbsp;programa&nbsp;&nbsp;donde&nbsp;vamos&nbsp;a&nbsp;elegir&nbsp;las&nbsp;opciones</span></dd></dl>
+
+<dl><dt><a name="Main-usar_item"><strong>usar_item</strong></a>(self)</dt><dd><span class="code">Esta&nbsp;funcion&nbsp;permite&nbsp;usar&nbsp;objetos&nbsp;sobre&nbsp;los&nbsp;digipymon&nbsp;aplicando&nbsp;sus&nbsp;bonificaciones<br>
+y&nbsp;los&nbsp;resta&nbsp;del&nbsp;inventario&nbsp;si&nbsp;ya&nbsp;no&nbsp;quedan&nbsp;los&nbsp;elimina</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
